@@ -14,7 +14,7 @@ author:
   url: #yoururl
 permalink: pretty
 
-baseurl: "/n4h"
+baseurl: /n4h
 
 highlighter: none
 
