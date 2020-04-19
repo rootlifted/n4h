@@ -1,5 +1,5 @@
 site: n4h
-url: https://rootlifted.github.io/n4h/
+url: https://rootlifted.github.io
 title: *nix4humans
 description: Simple and minimalistic jekyll blogging theme.
 twitter:
@@ -14,7 +14,7 @@ author:
   url: #yoururl
 permalink: pretty
 
-baseurl: "https://rootlifted.github.io/n4h/"
+baseurl: "/n4h"
 
 highlighter: none
 
