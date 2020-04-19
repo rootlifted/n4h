@@ -1,7 +1,7 @@
 links:
 - title: Tutorials
-  url: /n4h/
+  url: {{site.baseurl}}/
 - title: About
-  url: /n4h/about
+  url: {{site.baseurl}}/about
 - title: Search
-  url: /n4h/search
+  url: {{site.baseurl}}/search
