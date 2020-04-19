@@ -1,7 +1,7 @@
 links:
 - title: Tutorials
-  url: {{absolute_url}}/
+  url: /{{ site.baseurl }}
 - title: About
-  url: {{absolute_url}}/about
+  url: /{{ site.baseurl }}/about
 - title: Search
-  url: {{absolute_url}}/search
+  url: /{{ site.baseurl }}/search
