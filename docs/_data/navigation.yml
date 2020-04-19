@@ -1,7 +1,7 @@
 links:
 - title: Tutorials
-  url: {{site.absolute_url}}/
+  url: {{absolute_url}}/
 - title: About
-  url: {{site.absolute_url}}/about
+  url: {{absolute_url}}/about
 - title: Search
-  url: {{site.absolute_url}}/search
+  url: {{absolute_url}}/search
