@@ -4,7 +4,6 @@
       {% assign base_page_url = site.baseurl | append: page.url %}
       <ul>
          {% for item in site.data.navigation.links %}
-         <li>{{ item.url }}:{{ base_page_url }}</li>
          <li><a href="{{ item.url }}" {% if item.url == base_page_url %} class="active" {% endif %}>{{ item.title }}</a></li>
          {% endfor %}
       </ul>
