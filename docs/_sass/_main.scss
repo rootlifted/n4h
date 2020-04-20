@@ -12,7 +12,7 @@ body {
     text-rendering: optimizeLegibility;
 	line-height:1.5;
 	font-size: 1rem;
-	color: rgb(22, 23, 26);
+	color: #404040;
 }
 
 nav ul {
@@ -20,9 +20,13 @@ nav ul {
 }
 
 a {
-    color: #000;
+	color: #404040;
     text-decoration-skip-ink: auto;
     text-decoration: underline;
+}
+
+a:hover {
+	color: #A0D020;
 }
 
 pre {
@@ -36,6 +40,7 @@ pre {
 
 .post h1, .post h2, .post h3, .post h4 {
 	margin: 1rem 0;
+	color: #A0D020;
 }
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
@@ -90,6 +95,7 @@ header li {
 }
 
 header a.active {
+	color: #A0D020;
 	font-weight: bold;
 }
 
@@ -150,6 +156,7 @@ strong, b {
 .posts li time, .projects li time {
 	padding-left: 1rem;
 	white-space: nowrap;
+	color: #A0D020;
 	font-variant-numeric: tabular-nums;
 }
 
