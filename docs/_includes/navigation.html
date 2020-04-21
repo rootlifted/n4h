@@ -1,6 +1,8 @@
 <header role="banner">
-   <!--<h1 class="logo">{{ site.title }}</h1>-->
    <nav role="navigation">
+      <div style="height: 5rem;">
+         <img src="{{ site.url }}/{{ site.baseurl }}/assets/n4hlogo.png" alt="n4h" height="50" width="80">
+      </div>
       {% assign base_page_url = site.baseurl | append: page.url %}
       <ul>
          {% for item in site.data.navigation.links %}

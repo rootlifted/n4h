@@ -16,7 +16,7 @@ body {
 }
 
 nav ul {
-    border-right: 1px solid #edf2f7;
+    border-right: 1px solid #C0C0C0;
 }
 
 a {
@@ -79,7 +79,7 @@ hr {
 }
 
 header {
-	flex-basis:10rem;
+	flex-basis:9rem;
 	flex-grow:1;
 	position:relative;
 }
@@ -153,11 +153,12 @@ strong, b {
 	text-decoration: none;
 }
 
-.posts li time, .projects li time {
-	padding-left: 1rem;
+time {
 	white-space: nowrap;
 	color: #A0D020;
+	font-family: Menlo, Consolas, monospace;
 	font-variant-numeric: tabular-nums;
+	font-size: 0.8rem;
 }
 
 .post ul, .project ul, .post ol  {
@@ -171,7 +172,6 @@ main {
 	margin:2rem auto;
 	padding:1rem;
 }
-
 
 @media screen and (max-width: 45rem ) {
 header li {
