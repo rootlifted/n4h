@@ -1,12 +1,14 @@
 <header role="banner">
    <nav role="navigation">
-      <div style="height: 5rem;">
-         <img src="{{ site.url }}/{{ site.baseurl }}/assets/n4hlogo.png" alt="n4h" height="50" width="80">
-      </div>
       {% assign base_page_url = site.baseurl | append: page.url %}
       <ul>
+         <li>
+            <img src="{{ site.url }}/{{ site.baseurl }}/assets/n4hlogo.png" alt="n4h" width="128" height="128" />
+         </li>
          {% for item in site.data.navigation.links %}
-         <li><a href="{{ item.url }}" {% if item.url == base_page_url %} class="active" {% endif %}>{{ item.title }}</a></li>
+         <li>
+            <a href="{{ item.url }}" {% if item.url == base_page_url %} class="active" {% endif %}>{{ item.title }}</a>
+         </li>
          {% endfor %}
       </ul>
    </nav>
