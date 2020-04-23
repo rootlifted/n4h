@@ -54,6 +54,7 @@ pre {
 code, pre {
 	border-left: 0.5rem solid #B0CB21;
 	padding-left: 1rem;
+	padding-right: 1rem;
 	background: #404040;
 	color: #E0E0E0;
 	font-family: Menlo, Consolas, monospace, sans-serif;
@@ -66,10 +67,12 @@ code, pre {
 
 code {
 	padding: 0.1rem;
+	background: #404040;
 }
 
 pre code {
 	border: none;
+	background: #404040;
 }
 
 pre {
@@ -120,6 +123,7 @@ blockquote {
 	font-style: italic;
     border-left: 0.5rem solid #B0CB21;
 	padding-left: 1rem;
+	padding-right: 1rem;
 	background-color: #D0D0D0;
 	border-radius: 0.5rem;
 }

@@ -34,7 +34,7 @@ title: Search
 <!-- Html Elements for Search -->
 <div id="search-container">
     <input type="text" id="search-input" placeholder="Search...">
-    <ul id="results-container"></ul>
+    <ul id="results-container" style="list-style-type: none;"></ul>
 </div>
 
 <!-- Script pointing to search-script.js -->
