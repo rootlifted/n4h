@@ -9,7 +9,7 @@ tags: [commands,streams,navigation]
 
 Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.
 
-> There was a young man from the Isle of Whight<br />
+> There was a young man from the Isle of Wight<br />
 > Who claimed to travel much faster than light<br />
 > He went out one day<br />
 > In a relative way<br />
