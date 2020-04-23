@@ -51,35 +51,23 @@ pre {
 	margin: 2rem 0;
 }
 
-code, pre {
-	border-left: 0.5rem solid #B0CB21;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	background: #404040;
-	color: #E0E0E0;
-	font-family: Menlo, Consolas, monospace, sans-serif;
-	line-height: 1.5;
-	font-size: 0.75rem;
-	border-radius: 0.5rem;
-}
-
-code {
-	padding: 0.1rem;
-	background: #404040;
-	color: #E0E0E0;
-}
-
-pre code {
-	border: none;
+pre code[class] {
 	background: #404040;
 	color: #E0E0E0;
 }
 
 pre {
+	font-family: Menlo, Consolas, monospace, sans-serif;
+	line-height: 1.5;
+	font-size: 0.75rem;
+	border-radius: 0.5rem;
 	padding: 1rem;
 	overflow-x: auto;
 	background: #404040;
 	color: #E0E0E0;
+	border-left: 0.5rem solid #B0CB21;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .logo {
