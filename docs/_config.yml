@@ -1,7 +1,7 @@
 site: n4h
 url: https://rootlifted.github.io
 title: *nix4humans
-description: Simple and minimalistic jekyll blogging theme.
+description: nix4humans is all about evangelising the unwashed masses to the gospel of nix.
 twitter:
   username: #yourusername
   card: summary
@@ -16,7 +16,7 @@ permalink: pretty
 
 baseurl: /n4h
 
-highlighter: none
+highlighter: rouge
 
 exclude:
   - .jekyll-cache
@@ -26,8 +26,8 @@ compress_html:
   comments: ["<!-- ", " -->"]
 
 sass:
-  sass_dir:          _sass
-  style:            :compressed
+  sass_dir: _sass
+  style: :compressed
 
 plugins:
   - jekyll-paginate
@@ -49,22 +49,26 @@ collections:
     permalink: /:year/:month/:day/:slug
   
 defaults:
-- scope:
-    path: ""
-  values:
-    layout: "default"
-- scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-- scope:
-    path: ""
-    type: "posts"
-  values:
-    layout: "post"
-- scope:
-    path: ""
-    type: "tags"
-  values:
-    layout: "tag"
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "tag"

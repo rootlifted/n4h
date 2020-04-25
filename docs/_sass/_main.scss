@@ -1,37 +1,32 @@
 *,:after,:before {
-	box-sizing:border-box;
 	background-color:#E0E0E0;
+	box-sizing:border-box;
 	color:inherit;
 	margin:0;
 	padding:0;
 }
 
 body {
-	font-family: system-ui, sans-serif;
 	-webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-	line-height:1.5;
-	font-size: 1rem;
 	color: #606060;
+	font-family: system-ui, sans-serif;
+	font-size: 0.75rem;
+	line-height:1.5;
+	text-rendering: optimizeLegibility;
 }
 
 nav ul {
-    border-right: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;
 }
 
 a {
 	color: #606060;
-    text-decoration-skip-ink: auto;
-    text-decoration: underline;
+	text-decoration-skip-ink: auto;
+	text-decoration: underline;
 }
 
 a:hover {
 	color: #B0CB21;
-}
-
-pre {
-	margin: .5rem 0;
-	padding: .5rem;
 }
 
 .post p {
@@ -40,7 +35,6 @@ pre {
 
 .post h1, .post h2, .post h3, .post h4 {
 	margin: 1rem 0;
-	color: #B0CB21;
 }
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
@@ -49,6 +43,22 @@ pre {
 
 .meta {
 	margin: 2rem 0;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+pre {
+	background: #404040;
+	border-left: 0.5rem solid #B0CB21;
+	border-radius: 0.5rem;
+	color: #E0E0E0;
+	font-family: Menlo, Consolas, monospace, sans-serif;
+	line-height: 1.5;
+	margin: .5rem 0;
+	overflow-x: auto;
+	padding: 1rem;
 }
 
 pre code {
@@ -56,32 +66,18 @@ pre code {
 	color: #E0E0E0;
 }
 
-pre {
-	font-family: Menlo, Consolas, monospace, sans-serif;
-	line-height: 1.5;
-	font-size: 0.75rem;
-	border-radius: 0.5rem;
-	padding: 1rem;
-	overflow-x: auto;
-	background: #404040;
-	color: #E0E0E0;
-	border-left: 0.5rem solid #B0CB21;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
 .logo {
 	display: block;
-	width: 100%;
 	height: 100%;
 	max-height: 128px;
 	max-width: 128px;
+	width: 100%;
 }
 
 hr {
 	background: #C0C0C0;
-    height: 1px;
-    border: 0;
+	height: 1px;
+	border: 0;
 }
 
 header {
@@ -101,8 +97,8 @@ header a.active {
 
 header li {
 	margin-bottom: .2rem;
-	text-align: right;
 	margin-right: 2rem;
+	text-align: right;
 }
 
 header,section {
@@ -110,12 +106,12 @@ header,section {
 }
 
 blockquote {
+	background-color: #D0D0D0;
+	border-left: 0.5rem solid #B0CB21;
+	border-radius: 0.5rem;
 	font-style: italic;
-    border-left: 0.5rem solid #B0CB21;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	background-color: #D0D0D0;
-	border-radius: 0.5rem;
 }
 
 blockquote p {
@@ -123,9 +119,10 @@ blockquote p {
 }
 
 h1,h2,h3,h4,h5 {
+	color: #B0CB21;
+	font-weight: 400;
 	line-height: 1;
 	margin: 1rem 0;
-	font-weight: 400;
 }
 
 section h1:first-child {
@@ -149,7 +146,7 @@ strong, b {
 }
 
 .posts ul,header ul {
-	list-style:none;
+	list-style: none;
 }
 
 .posts li {
@@ -160,18 +157,18 @@ strong, b {
 }
 
 .posts li a, .posts li div, .projects li a {
-	white-space:nowrap;
 	overflow:hidden;
-	text-overflow:ellipsis;
 	text-decoration: none;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 time {
-	white-space: nowrap;
 	color: #B0CB21;
 	font-family: Menlo, Consolas, monospace;
-	font-variant-numeric: tabular-nums;
-	font-size: 0.8rem;
+	font-size: 0.65rem;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 
 .post ul, .project ul, .post ol  {
@@ -181,28 +178,27 @@ time {
 main {
 	display:flex;
 	flex-wrap:wrap;
-	max-width:60rem;
 	margin:2rem auto;
+	max-width:60rem;
 	padding:1rem;
 }
 
 section {
+	display:flex;
 	flex-basis:0;
+	flex-direction:column;
 	flex-grow:999;
 	min-width:70%;
-	display:flex;
-	flex-direction:column;
-	
 }
 
 figcaption {
-    font-size: smaller;
+	font-size: smaller;
 }
 
 @media screen and (max-width: 45rem ) {
 
 	header li {
-	    display: inline;
+		display: inline;
 		margin-right: 1rem;
 	}
 	
@@ -216,7 +212,7 @@ figcaption {
 	}
 	
 	nav ul {
-	    border-right: 0px;
+		border-right: 0px;
 	}
 	
 	.photos ul {
