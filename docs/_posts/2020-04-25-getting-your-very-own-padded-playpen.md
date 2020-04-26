@@ -12,6 +12,7 @@ It is safe to assume that you are ***not*** running `*nix` on your home machine.
 The "prime directive" before we start:<br />
 > ***ZERO*** *impact/risk to your existing operating system and apps*.
 
+
 This leaves two avenues open to us:
 
 > **[Virtualisation](https://en.wikipedia.org/wiki/Virtualization)**<br />
