@@ -59,6 +59,7 @@ pre {
 	box-shadow: 0.2rem 0.2rem 0.4rem #606060;
 	color: #E0E0E0;
 	font-family: Menlo, Consolas, monospace, sans-serif;
+	font-size: 10px;
 	line-height: 1.5;
 	margin: .5rem;
 	overflow-x: auto;
@@ -178,7 +179,6 @@ strong, b {
 time {
 	color: #B0CB21;
 	font-family: Menlo, Consolas, monospace;
-	font-size: 0.65rem;
 	vertical-align: middle;
 	white-space: nowrap;
 }
@@ -197,7 +197,7 @@ main {
 	display:flex;
 	flex-wrap:wrap;
 	margin:2rem auto;
-	max-width:60rem;
+	max-width:80rem;
 	padding:1rem;
 }
 
@@ -210,7 +210,7 @@ section {
 }
 
 small {
-	font-size: 0.35rem;
+	font-size: 8px;
 }
 
 .task-list-item {
@@ -226,15 +226,11 @@ figcaption {
 	font-size: smaller;
 }
 
-@media screen and (max-width: 45rem ) {
+@media screen and (max-width: 48rem ) {
 
 	header li {
 		display: inline;
 		margin-right: 1rem;
-	}
-	
-	.logo {
-		padding-bottom: 1rem;
 	}
 	
 	header ul {
