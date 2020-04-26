@@ -53,6 +53,7 @@ pre {
 	background: #404040;
 	border-left: 0.5rem solid #B0CB21;
 	border-radius: 0.5rem;
+	box-shadow: 0.2rem 0.2rem 0.4rem #606060;
 	color: #E0E0E0;
 	font-family: Menlo, Consolas, monospace, sans-serif;
 	line-height: 1.5;
@@ -109,13 +110,14 @@ blockquote {
 	background-color: #D0D0D0;
 	border-left: 0.5rem solid #B0CB21;
 	border-radius: 0.5rem;
+	box-shadow: 0.2rem 0.2rem 0.4rem #909090;
 	font-style: italic;
 	padding-left: 1rem;
 	padding-right: 1rem;
-}
 
-blockquote p {
-	background-color: #D0D0D0;
+	* {
+		background-color: #D0D0D0;
+	}
 }
 
 h1,h2,h3,h4,h5 {
@@ -171,8 +173,14 @@ time {
 	white-space: nowrap;
 }
 
-.post ul, .project ul, .post ol  {
-	list-style-position: inside;
+.post ul, .project ul {
+	list-style-position: outside;
+	margin-left: 0.25rem;
+}
+
+.post ol  {
+	list-style-position: outside;
+	margin-left: 1.5rem;
 }
 
 main {
@@ -189,6 +197,19 @@ section {
 	flex-direction:column;
 	flex-grow:999;
 	min-width:70%;
+}
+
+small {
+	font-size: 0.35rem;
+}
+
+.task-list-item {
+	list-style: none;
+}
+
+.task-list-item-checkbox {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 figcaption {
