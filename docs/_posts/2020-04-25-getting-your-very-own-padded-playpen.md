@@ -4,7 +4,7 @@ title: "<b>Baby Step 0</b>: Getting your very own padded playpen"
 description: "Setting up a safe environment in which to experiment with no consequence to the student's workstation."
 summary: "Setting up a safe environment in which to experiment with no consequence to the student's workstation."
 comments: false
-tags: [docker,containerisation,setup,virtualisation]
+tags: [containerisation,docker,setup,virtualisation]
 ---
 
 It is safe to assume that you are ***not*** running `*nix` on your home machine. Which reasonably leaves *Windows*, or *macOS* (which ***is*** `*nix`, but we don't want you experimenting on your own lifesupport do we?)
