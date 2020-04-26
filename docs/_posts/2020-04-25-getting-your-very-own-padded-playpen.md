@@ -7,7 +7,7 @@ comments: false
 tags: [containerisation,docker,setup,virtualisation]
 ---
 
-It is safe to assume that you are ***not*** running `*nix` on your home machine. Which reasonably leaves *Windows*, or *macOS* (which ***is*** `*nix`, but we don't want you experimenting on your own lifesupport do we?)
+It is safe to assume that you are ***not*** running `*nix` on your home machine. Which reasonably leaves *Windows*, or *macOS* (which ***is*** `*nix`, but we don't want you experimenting on your own life raft do we?)
 
 The "prime directive" before we start:<br />
 > ***ZERO*** *impact/risk to your existing operating system and apps*.
@@ -72,11 +72,12 @@ root@72eadae6073d:/#
 So ... you have now:
 - [X] Created a *DockerHub* user.
 - [X] Downloaded and installed *Docker Desktop*.
-- [X] Opened a command-line window.
+- [X] Started *Docker Desktop* entering your *DockerHub* credentials.
+- [X] Opened a CLI window.
 - [X] Pulled down the `rootlifted/n4h` *Docker* image from *DockerHub*.
 - [X] Created your very first and very own `*nix` container.
 
-To list the `*nix` filesystem, type the following command:
+To list the `*nix` filesystem (just to kick the proverbial tyres on this container), type the following command:
 ```
 root@72eadae6073d:/# ls -l
 total 68

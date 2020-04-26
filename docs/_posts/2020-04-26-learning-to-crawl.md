@@ -50,26 +50,32 @@ Some fields of interest:
 * `REPOSITORY` is the *DockerHub* repository you pulled the image from, there are obviously ***many*** other official vendor repositories e.g. [ubuntu](https://hub.docker.com/_/ubuntu), [postgres](https://hub.docker.com/_/postgres), [node](https://hub.docker.com/_/node), [maven](https://hub.docker.com/_/maven), [mongo](https://hub.docker.com/_/mongo), [nginx](https://hub.docker.com/_/nginx), [java](https://hub.docker.com/_/openjdk), [python](https://hub.docker.com/_/python), [windows](https://hub.docker.com/_/microsoft-windows-base-os-images), [iis](https://hub.docker.com/_/microsoft-windows-servercore-iis), [oracle](https://hub.docker.com/_/oracle-database-enterprise-edition) etc.
 * `SIZE` might be interesting if you consider that typical operating system installations these days take up gigabytes, and virtual machine images therefore take up at least 8GB, but typically at least double that.
 
-However for the scope of our endeavour (which is to learn `*nix`, not become *Docker* gods), you will need to know:
+However for the scope of our endeavour which is to learn `*nix` (not become *Docker* gods), you will need to know:
 
 How to create a container from a specified repository image (which we have done in the previous step, so no need to do again right now):
 ```
-user@host ~ % docker run -ti --name=n4h_sandbox -v <path_to_your_shared_folder>:/mnt/shared rootlifted/n4h /bin/bash
-docker: Error response from daemon: Conflict. The container name "/n4h_sandbox" is already in use by container "f749d99eff10e1d1a8ce743e69ab62db47d569493941543e83f3233c8266b40a". You have to remove (or rename) that container to be able to reuse that name.
+user@host ~ % docker run -ti --name=n4h_sandbox ubuntu /bin/bash
+docker: Error response from daemon: Conflict. The container name "/n4h_sandbox" is already in use by container
+"f749d99eff10e1d1a8ce743e69ab62db47d569493941543e83f3233c8266b40a".
+You have to remove (or rename) that container to be able to reuse that name.
 See 'docker run --help'.
-user@host ~ % docker run -ti --name=noodle -v <path_to_your_shared_folder>:/mnt/shared rootlifted/n4h /bin/bash
+user@host ~ % docker run -ti ubuntu /bin/bash
 root@e26bc87dfc29:/# exit
 exit
+user@host ~ % n4h % docker container ls -a    
+CONTAINER ID   IMAGE            COMMAND       CREATED          STATUS                     PORTS   NAMES
+f749d99eff10   rootlifted/n4h   "/bin/bash"   20 hours ago     Exited (0) 8 minutes ago           n4h_sandbox
+e26bc87dfc29   ubuntu           "/bin/bash"   2 seconds ago    Exited (0) 1 second ago            angry_thompson
 user@host ~ % 
 ```
 
 How to get into it (to the more technically savvy, you cannot `ssh` into this container, since it is not running `sshd` ... also notice how I snuck in the `start` command in there)
 ```
-user@host ~ % docker container attach noodle                                                         
+user@host ~ % docker container attach angry_thompson                                                         
 You cannot attach to a stopped container, start it first
-user@host ~ % docker container start noodle
-noodle
-user@host ~ % docker container attach noodle
+user@host ~ % docker container start angry_thompson
+angry_thompson
+user@host ~ % docker container attach angry_thompson
 root@e26bc87dfc29:/# exit
 exit
 user@host ~ %
@@ -78,21 +84,22 @@ user@host ~ %
 How to delete a container (in case you have royally mucked it up):
 ```
 user@host ~ % n4h % docker container ls -a    
-CONTAINER ID   IMAGE            COMMAND       CREATED        STATUS                     PORTS   NAMES
-f749d99eff10   rootlifted/n4h   "/bin/bash"   20 hours ago   Exited (0) 8 minutes ago           n4h_sandbox
-e26bc87dfc29   rootlifted/n4h   "/bin/bash"   20 hours ago   Exited (0) 1 minutes ago           noodle
-user@host ~ % docker container rm noodle
-Error response from daemon: You cannot remove a running container db2bbf2f946795e65b4a1a3600b929a866212cb35884baa14cdcb15cc41c6dd4. Stop the container before attempting removal or force remove
-user@host ~ % docker container stop noodle
-noodle
-user@host ~ % docker container rm noodle   
-noodle
+CONTAINER ID   IMAGE            COMMAND       CREATED          STATUS                     PORTS   NAMES
+f749d99eff10   rootlifted/n4h   "/bin/bash"   20 hours ago     Exited (0) 8 minutes ago           n4h_sandbox
+e26bc87dfc29   ubuntu           "/bin/bash"   30 seconds ago   Up 9 seconds                       angry_thompson
+user@host ~ % docker container rm angry_thompson
+Error response from daemon: You cannot remove a running container db2bbf2f946795e65b4a1a3600b929a866212cb35884baa14cdcb15cc41c6dd4.
+Stop the container before attempting removal or force remove
+user@host ~ % docker container stop angry_thompson
+angry_thompson
+user@host ~ % docker container rm angry_thompson   
+angry_thompson
 user@host ~ % n4h % docker container ls -a    
-CONTAINER ID   IMAGE            COMMAND       CREATED        STATUS                     PORTS   NAMES
-f749d99eff10   rootlifted/n4h   "/bin/bash"   20 hours ago   Exited (0) 8 minutes ago           n4h_sandbox
+CONTAINER ID   IMAGE            COMMAND       CREATED          STATUS                     PORTS   NAMES
+f749d99eff10   rootlifted/n4h   "/bin/bash"   20 hours ago     Exited (0) 8 minutes ago           n4h_sandbox
 user@host ~ % 
 ```
 
-As you can see I have made some instructive errors on purpose. First, to illustrate that you cannot create two containers with the same name. If you do not specify a name (i.e. omit the `--name=...` part), *Docker* generates fun ones for you. And second, to slip in an additional command (`stop`), which realistically you will rarely need due to the way we use containers interactively, i.e. not running them as a web-server or database say.
+As you can see I have made some premeditated educational errors. First, to illustrate that you cannot create two containers with the same name. If you do not specify a name (i.e. omit the `--name=...` part), *Docker* generates fun ones for you. And second, to slip in an additional command (`stop`), which realistically you will rarely need due to the way we use containers interactively, i.e. not running them as a web-server or database say.
 
-Thus concludeth the *Docker* ceremony. Next time ... we dive into `*nix`!
+Thus concludeth the *Docker* sermon. Next time ... we dive headlong into `*nix`!
