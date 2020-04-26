@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "<b>Baby Step 0:</b> Getting your very own padded playpen"
+title: "<b>Baby Step 0</b>: Getting your very own padded playpen"
 description: "Setting up a safe environment in which to experiment with no consequence to the student's workstation."
 summary: "Setting up a safe environment in which to experiment with no consequence to the student's workstation."
 comments: false
@@ -11,7 +11,6 @@ It is safe to assume that you are ***not*** running `*nix` on your home machine.
 
 The "prime directive" before we start:<br />
 > ***ZERO*** *impact/risk to your existing operating system and apps*.
-
 
 This leaves two avenues open to us:
 
@@ -31,7 +30,9 @@ Let's get you your very own little patch of `*nix` turf to till.
 
 2. DOWNLOAD & INSTALL: [Docker Desktop](https://www.docker.com/products/docker-desktop) on your machine.
 
-3. OPEN CLI: If you are on *macOS*: press `⌘+Space` and type `Terminal`, OR, if you are on *Windows*: press `⊞+X` and select `Command Prompt` from the menu that pops up on the bottom left of the screen.
+3. RUN: freshly installed *Docker* application (which should prompt you to enter your freshly minted *DockerHub* user credentials).
+
+4. OPEN CLI: If you are on *macOS*: press `⌘+Space` and type `Terminal`, OR, if you are on *Windows*: press `⊞+X` and select `Command Prompt` from the menu that pops up on the bottom left of the screen.
 
 In your *macOS* `Terminal` enter the following *Docker* commands:
 ```

@@ -31,11 +31,11 @@ a:hover {
 }
 
 .post p {
-	margin: .5rem 0;
+	margin: 0.5rem 0;
 }
 
 .post h1, .post h2, .post h3, .post h4 {
-	margin: 1rem 0;
+	margin: 1.0rem 0;
 }
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
@@ -43,7 +43,7 @@ a:hover {
 }
 
 .meta {
-	margin: 2rem 0;
+	margin: 2.0rem 0;
 
 	a {
 		text-decoration: none;
@@ -193,17 +193,17 @@ time {
 main {
 	display:flex;
 	flex-wrap:wrap;
-	margin:2rem auto;
-	max-width:80rem;
-	padding:1rem;
+	margin: 2rem auto;
+	max-width: 60rem;
+	padding: 1rem;
 }
 
 section {
-	display:flex;
-	flex-basis:0;
-	flex-direction:column;
-	flex-grow:999;
-	min-width:70%;
+	display: flex;
+	flex-basis: 0;
+	flex-direction: column;
+	flex-grow: 999;
+	min-width: 40rem;
 }
 
 small {
@@ -223,7 +223,7 @@ figcaption {
 	font-size: smaller;
 }
 
-@media screen and (max-width: 48rem ) {
+@media screen and (max-width: 40rem) {
 
 	header li {
 		display: inline;
@@ -232,7 +232,7 @@ figcaption {
 	
 	header ul {
 		border-bottom: 1px solid #C0C0C0;
-		padding-bottom: 2rem;	
+		padding-bottom: 1rem;	
 	}
 	
 	nav ul {
