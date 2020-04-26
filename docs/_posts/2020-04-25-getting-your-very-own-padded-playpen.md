@@ -7,7 +7,7 @@ comments: false
 tags: [docker,containerisation,setup,virtualisation]
 ---
 
-It is safe to assume that you are ***not*** running `*nix` on your home machine. Which reasonably leaves Microsoft Windows, or MacOS (which ***is*** `*nix`, but we don't want you experimenting on your own lifesupport do we?)
+It is safe to assume that you are ***not*** running `*nix` on your home machine. Which reasonably leaves *Windows*, or *macOS* (which ***is*** `*nix`, but we don't want you experimenting on your own lifesupport do we?)
 
 The "prime directive" before we start:<br />
 > ***ZERO*** *impact/risk to your existing operating system and apps*.
@@ -19,21 +19,21 @@ This leaves two avenues open to us:
 > Which is software that virtualises the entire operating system (and is therefore a tad **heavy** for our purposes). [VirtualBox](https://www.virtualbox.org) would be a good example of a high quality free virtualisation tool.
 >
 > **[Containerisation](https://www.docker.com/resources/what-container)**<br />
-> Which offers a **lightweight** container that is able to run all the applications we need. This is the route we will take, using a free, powerful and very popular tool called Docker*.
+> Which offers a **lightweight** container that is able to run all the applications we need. This is the route we will take, using a free, powerful and very popular tool called ***Docker***.
 >
-> <small>\* You will need MacOS [10.13 or higher](https://hub.docker.com/editions/community/docker-ce-desktop-mac) or Microsoft Windows [10 Pro](https://hub.docker.com/editions/community/docker-ce-desktop-windows). Sorry `¯\_(ツ)_/¯` if you have coal-fired computing, get with the times man.</small>
+> <small>\* You will need *macOS* [10.13 or higher](https://hub.docker.com/editions/community/docker-ce-desktop-mac) or Microsoft *Windows* [10 Pro](https://hub.docker.com/editions/community/docker-ce-desktop-windows). Sorry `¯\_(ツ)_/¯` if you have coal-fired computing, get with the times man.</small>
 
 Right.
 
 Let's get you your very own little patch of `*nix` turf to till.
 
-1. SET UP: a [DockerHub](https://hub.docker.com) account. This will allow you to pull down the [`rootlifted/n4h`](https://hub.docker.com/r/rootlifted/n4h) Docker image from the public repository.
+1. SET UP: a [DockerHub](https://hub.docker.com) account. This will allow you to pull down the [`rootlifted/n4h`](https://hub.docker.com/r/rootlifted/n4h) *Docker* image from the public repository.
 
 2. DOWNLOAD & INSTALL: [Docker Desktop](https://www.docker.com/products/docker-desktop) on your machine.
 
-3. OPEN CLI: If you are on MacOS: press `⌘+Space` and type `Terminal`, OR, if you are on Windows: press `⊞+X` and select `Command Prompt` from the menu that pops up on the bottom left of the screen.
+3. OPEN CLI: If you are on *macOS*: press `⌘+Space` and type `Terminal`, OR, if you are on *Windows*: press `⊞+X` and select `Command Prompt` from the menu that pops up on the bottom left of the screen.
 
-In your MacOS `Terminal` enter the following docker commands:
+In your *macOS* `Terminal` enter the following *Docker* commands:
 ```
 user@host ~ % docker login --username <enter_your_dockerhub_username_here>
 Password: <enter_your_dockerhub_password_here>
@@ -56,7 +56,7 @@ Status: Downloaded newer image for rootlifted/n4h:latest
 root@c80c5927c652:/#
 ```
 
-The docker commands in Windows look exactly the same, only your prompt will look different:
+The *Docker* commands in *Windows*  look exactly the same, only your prompt will look different:
 ```
 C:\WINDOWS>docker login --username <enter_your_dockerhub_username_here>
 Password: <enter_your_dockerhub_password_here>
@@ -66,13 +66,13 @@ C:\WINDOWS>docker run -ti --name=n4h_sandbox -v <path_to_shared_folder>:/mnt/sha
 ...
 root@72eadae6073d:/# 
 ```
-<small>NOTE: Where `<path_to_shared_folder>` would be an arbitrary folder (e.g. `/Users/user/docker` for MacOS or `C:\USERS\user\docker` for Windows) that you wish to use as shared folder into/out of the container.<small>
+<small>NOTE: Where `<path_to_shared_folder>` would be an arbitrary folder (e.g. `/Users/user/docker` for *macOS* or `C:\USERS\user\docker` for *Windows*) that you wish to use as shared folder into/out of the container.<small>
 
 So ... you have now:
-- [X] Created a DockerHub user.
-- [X] Downloaded and installed Docker Desktop.
+- [X] Created a *DockerHub* user.
+- [X] Downloaded and installed *Docker Desktop*.
 - [X] Opened a command-line window.
-- [X] Pulled down the `rootlifted/n4h` Docker image from DockerHub.
+- [X] Pulled down the `rootlifted/n4h` *Docker* image from *DockerHub*.
 - [X] Created your very first and very own `*nix` container.
 
 To list the `*nix` filesystem, type the following command:
@@ -107,7 +107,7 @@ exit
 user@host ~ % 
 ```
 
-Or on Windows:
+Or on *Windows*:
 ```
 root@72eadae6073d:/# exit
 exit
@@ -116,4 +116,4 @@ C:\WINDOWS>
 
 I think that's enough for one day. You now have your own little `*nix` sandbox in which to safely play to heart's content (and even if you royally mess it up, it is now super easy to create a new one whenever your wish).
 
-Next time we'll cover the few docker commands you will need, followed by some basic `*nix` commands.
+Next time we'll cover the few *Docker* commands you will need, followed by some basic `*nix` commands.

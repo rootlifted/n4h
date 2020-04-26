@@ -29,4 +29,4 @@ However these tutorials are aimed at people who need to:
 
 <small>\* Obviously, the learning curve is steep enough to have kept you out of the magician's club until now. But once you're in, things happen rather chop-chop.</small>
 
-![n4h design](/n4h/assets/n4h_design.svg)
+<img src="{{ site.url }}/{{ site.baseurl }}/assets/n4h_design.svg" alt="n4h" class="design" />

@@ -1,28 +1,38 @@
 ---
 layout: post
 title: "<b>Baby Step 1:</b> Learning to crawl"
-description: "Learn some basic commands and how they are strung together."
+description: "Learn some basic housekeeping commands."
 summary: "Learn some basic commands and how they are strung together."
 comments: false
-tags: [commands,streams,navigation]
+tags: [commands,docker,housekeeping,navigation]
 ---
 
-Lorem ipsum dolor amet tousled viral art party blue bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.
+Let's first cover the *Docker* basics you may need to support your out-of-control `*nix` habit. Firstly, *macOS* folks (and *Windows* folk unfamiliar with CLI):
 
-> There was a young man from the Isle of Wight<br />
-> Who claimed to travel much faster than light<br />
-> He went out one day<br />
-> In a relative way<br />
-> And returned the previous night.<br />
+> ***NOTA BENE!***<br />
+> Since *macOS* ***is*** `*nix`, ***pay careful attention to the prompt***, to know whether you are ***inside*** your container ... or ***outside*** it (i.e. on your own machine).
 
-Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90's. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.
-
-VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.
+Your *macOS* terminal prompt looks something like this:
 ```
-a {
-    margin: 1px;
-}
+<your_user_name>@<your_hostname> <current_folder> %
 ```
-Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.
 
-Actually hella you probably haven't heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.
+(And for completeness, the *Windows* command prompt looks something like this:)
+```
+C:\WINDOWS>
+```
+
+If you're inside your `rootlifted/n4h` *Docker* container, the prompt will ***always*** start with `root` followed by `@<contained_id>` (twelve hexadecimal digits):
+```
+root@c80c5927c652:/#
+```
+
+With that out of the way let us cover a few Docker housekeeping essentials, on the CLI (`Terminal` in *macOS* and `Command Prompt` in *Windows*) ***outside*** your container, this is how you list docker containers:
+```
+C:\WINDOWS>docker container ls -a 
+CONTAINER ID   IMAGE            COMMAND       CREATED        STATUS                      PORTS   NAMES
+db2bbf2f9467   rootlifted/n4h   "/bin/bash"   12 hours ago   Exited (0) 57 seconds ago           n4h_sandbox
+```
+`CONTAINER ID` is (as previously discussed) the twelve hex digit unique identifier *Docker* uses internally to identify your container. However you can use either that, or the more user friendly `NAMES` field when talking to *Docker* about your container.
+
+\[Continue Writing Here\]
