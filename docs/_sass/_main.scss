@@ -79,6 +79,10 @@ pre code {
 .design {
 	display: block;
 	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-height: 330px;
+	max-width: 585px;
 	width: 100%;
 }
 
@@ -180,12 +184,7 @@ time {
 	white-space: nowrap;
 }
 
-.post ul, .project ul {
-	list-style-position: outside;
-	margin-left: 0.25rem;
-}
-
-.post ol  {
+.post ul, .post ol, .project ul {
 	list-style-position: outside;
 	margin-left: 1.5rem;
 }
@@ -194,7 +193,7 @@ main {
 	display:flex;
 	flex-wrap:wrap;
 	margin: 2rem auto;
-	max-width: 60rem;
+	max-width: 80rem;
 	padding: 1rem;
 }
 
