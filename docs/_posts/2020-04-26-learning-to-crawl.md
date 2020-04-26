@@ -95,4 +95,4 @@ user@host ~ %
 
 As you can see I have made some instructive errors on purpose. First, to illustrate that you cannot create two containers with the same name. If you do not specify a name (i.e. omit the `--name=...` part), *Docker* generates fun ones for you. And second, to slip in an additional command (`stop`), which realistically you will rarely need due to the way we use containers interactively, i.e. not running them as a web-server or database say.
 
-Thus concludeth the somewhat less *Docker* ceremony.
+Thus concludeth the *Docker* ceremony. Next time ... we dive into `*nix`!
