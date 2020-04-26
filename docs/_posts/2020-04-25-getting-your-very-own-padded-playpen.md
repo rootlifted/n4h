@@ -67,7 +67,7 @@ C:\WINDOWS>docker run -ti --name=n4h_sandbox -v <path_to_shared_folder>:/mnt/sha
 ...
 root@72eadae6073d:/# 
 ```
-***NOTE:*** Where `<path_to_shared_folder>` would be an arbitrary folder (e.g. `/Users/user/docker` for *macOS* or `C:\USERS\user\docker` for *Windows*) that you wish to use as shared folder into/out of the container.
+***NOTE:*** Where `<path_to_shared_folder>` would be an arbitrary existing folder on your machine that you chose/created (e.g. `/Users/user/docker` for *macOS* or `C:\USERS\user\docker` for *Windows*) that you wish to use as shared folder between your machine ("outside") and the container ("inside").
 
 So ... you have now:
 - [X] Created a *DockerHub* user.
