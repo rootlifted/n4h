@@ -115,6 +115,6 @@ exit
 C:\WINDOWS>
 ```
 
-I think that's enough for one day. You now have your own little `*nix` sandbox in which to safely play to heart's content (and even if you royally mess it up, it is now super easy to create a new one whenever your wish).
+I think that's enough for one day. You now have your own little `*nix` sandbox in which to safely play to heart's content (and even if you royally mess it up, it is now super easy to create a new one whenever you wish).
 
 Next time we'll cover the few *Docker* commands you will need. And once that has been adequately covered, the following session will cover some basic `*nix` commands.
