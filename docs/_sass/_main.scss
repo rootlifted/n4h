@@ -58,11 +58,8 @@ pre {
 	font-family: Menlo, Consolas, monospace, sans-serif;
 	line-height: 1.5;
 	margin: .5rem;
+	overflow-x: auto;
 	padding: 1rem;
-
-	.highlight {
-		overflow: scroll;
-	}
 }
 
 pre code {
