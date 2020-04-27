@@ -57,15 +57,26 @@ pre {
 	box-shadow: 0.2rem 0.2rem 0.4rem #606060;
 	color: #E0E0E0;
 	font-family: Menlo, Consolas, monospace, sans-serif;
+	font-size: 0.65rem;
 	line-height: 1.5;
 	margin: 0.5rem;
 	overflow-x: auto;
 	padding: 1.0rem;
+	i {
+		background: #404040;
+		color: #B0CB21;
+	}
+	b {
+		background: #404040;
+		color: #B0CB21;
+		font-weight: 400;
+	}
 }
 
-pre code {
-	background: #404040;
-	color: #E0E0E0;
+code {
+	color: #606060;
+	font-family: Menlo, Consolas, monospace, sans-serif;
+	font-size: 0.75rem;
 }
 
 .logo {
@@ -210,11 +221,11 @@ small {
 }
 
 .task-list-item {
+	margin-left: -0.5rem;
 	list-style: none;
 }
 
 .task-list-item-checkbox {
-	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }
 

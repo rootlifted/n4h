@@ -5,13 +5,13 @@ title: About
 
 > **Short Version**
 >
-> `*nix`4*humans* is all about evangelising to the unwashed masses and to extol the virtues of `*nix` to those who have traditionally felt excluded.
+> `*nix`4*humans* is all about evangelising to the unwashed "non-technical" masses, extolling the virtues of `*nix` to those who have traditionally felt excluded but need tools to deal with the modern-day data deluge.
 > 
 > No previous technical experience required, only a keen interest.
 
-Why would anyone want to become proficient with `*nix`? Surely it is software from the time of Watergate and the "Winter of Discontent", forgotten on ancient floppy disks in nuclear missile silos?
+Why would *anyone* want to become proficient with `*nix`? Surely it is software from the time of Watergate and the "Winter of Discontent", forgotten on ancient floppy disks in now decommissioned nuclear missile silos?
 
-While it is indeed true that `*nix` was born in the height of the Cold War, it is *also* true that it is running your smartphone, tablet, television, wifi router and most of the massive tech giants' infrastructure.
+While it is indeed true that `*nix` was born at the height of the Cold War, it is *also* true that it is running your smartphone, tablet, television, Wi-Fi router and most of the massive tech giants' infrastructure.
 
 You *could* argue that like the internal combustion engine, `*nix` has been iteratively perfected over a very long time.
 
