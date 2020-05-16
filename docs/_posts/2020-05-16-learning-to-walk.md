@@ -4,7 +4,7 @@ title: "Baby Step 2: Learning to walk"
 description: "<b>Baby Step 2:</b> Learning to walk"
 summary: "Learn some basic commands and how they are strung together."
 comments: false
-tags: [basic,cd,commands,ls,nix,pwd]
+tags: [basic,case sensitivity,cd,clear,commands,ls,nix,path delimiter,pwd]
 ---
 
 Right. Now that you have downloaded, installed and learnt the rudiments of our chosen containerisation solution, called *Docker*, we are ready to step into the vast ocean of `*nix`.
@@ -52,7 +52,11 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-Alright ... but how do I know which directory I am *currently* in? In *this* case you could look at the prompt to see `root@f749d99eff10:/#` and from that deduce that the user `root` is logged into the container `f749d99eff10` and is currently in the directory `/`. And all that would be perfectly correct, *but not necessarily universally true*, since that is dependent on the configuration of the prompt (which may be different on different `*nix` [boxen](http://catb.org/jargon/html/B/boxen.html)).
+There is much more to know about our friend **`ls`** (like the options `1`, `a`, `d`, `F`, `h`, `R`, `r`, `S` and `t`), but perhaps at another time.
+
+Alright ... but how do I know which directory I am *currently* in?
+
+In *this* case you could look at the prompt to see `root@f749d99eff10:/#` and from that deduce that the user `root` is logged into the container `f749d99eff10` and is currently in the directory `/`. And all that would be perfectly correct, *but not necessarily universally true*, since that is dependent on the configuration of the prompt (which may be different on different `*nix` [boxen](http://catb.org/jargon/html/B/boxen.html)).
 
 The command that reliably answers your question is **`p`**resent **`w`**orking **`d`**irectory.
 <pre>
@@ -101,7 +105,7 @@ lrwxrwxrwx 1 root root         6 Aug  4  2018  apropos -> whatis
 root@f749d99eff10:/usr/bin# <b>&block;</b>
 </pre>
 ...WHOA over three hundred items filling up the screen (you should be able to scroll back if you are curious, if you cannot ... you may have to configure the number of scroll-back lines in your Terminal/Command Prompt).
-What if we'd like to **`clear`** the screen a bit?
+In a future session we will take a look at managing a geyser of steaming hot characters with **`more`** or **`less`**. But for now, what if we'd like to **`clear`** the screen a bit?
 <pre>
 root@f749d99eff10:/usr/bin# <b>clear&block;</b>
 </pre>
