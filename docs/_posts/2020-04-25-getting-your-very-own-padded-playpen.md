@@ -4,7 +4,7 @@ title: "Baby Step 0: Getting your very own padded playpen"
 description: "<b>Baby Step 0:</b> Getting your very own padded playpen"
 summary: "Setting up a safe environment in which to experiment with no consequence to the student's workstation."
 comments: false
-tags: [containerisation,docker,setup,virtualisation]
+tags: [basic docker,containerisation,setup,virtualisation]
 ---
 
 Since you are perusing `*nix`4*humans*, it would not wholly unreasonable to assume that you are *not* running `*nix` on your home computer. Which by elimination leaves *Windows* &hellip; or possibly *macOS* (which is *actually* `*nix`), but we don't want you experimenting on your own life raft do we?

@@ -43,9 +43,10 @@ a:hover {
 }
 
 .meta {
-	margin: 2.0rem 0;
-
+	margin: 1.0rem 0;
+	font-size: 0.5rem;
 	a {
+		color: #909090;
 		text-decoration: none;
 	}
 }
@@ -263,7 +264,7 @@ main {
 	display:flex;
 	flex-wrap:wrap;
 	margin: 2rem auto;
-	max-width: 70rem;
+	max-width: 80rem;
 	padding: 1rem;
 }
 
