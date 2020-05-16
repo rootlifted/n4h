@@ -96,7 +96,7 @@ So let's compare the options:
                 </p>
                 <b>OR</b> <a href="https://docs.docker.com/toolbox/overview/">Docker Toolbox</a>
                 <p>
-                    Which supports more primitive flavours of 64-bit Windows.
+                    (which supports more primitive flavours of 64-bit macOS/Windows)
                 </p>
             </td>
         </tr>
@@ -107,10 +107,10 @@ So let's compare the options:
 
 Right, enough jibber-jabber, let's get you your very own little patch of `*nix` turf to till.
 
-> <h3>Goals</h3>
+> <h3>TO DO</h3>
 > <hr />
 > - [ ] Create a [DockerHub](https://hub.docker.com) account.
-> - [ ] Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) on your machine.
+> - [ ] Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) on your machine (or [Docker Toolbox](https://docs.docker.com/toolbox/overview/) on your abacus).
 > - [ ] Start *Docker Desktop* with your *DockerHub* credentials.
 > - [ ] Open a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) window\*.
 > - [ ] Pull down the `rootlifted/n4h` *Docker* image from *DockerHub*.
@@ -145,7 +145,7 @@ Status: Downloaded newer image for rootlifted/n4h:latest
 <b>root</b>@c80c5927c652:/# <b>&block;</b>
 </pre>
 
-The *Docker* commands look exactly the samein *Windows*. Only your prompt will look different:
+The *Docker* commands look exactly the same in *Windows*. Only your prompt will look different:
 <pre>
 C:\WINDOWS><b>docker login --username <i>&lt;your_dockerhub_username&gt;</i></b>
 Password: <b><i>&lt;your_dockerhub_password&gt;</i></b>
@@ -157,7 +157,7 @@ C:\WINDOWS><b>docker run -ti --name=n4h_sandbox -v <i>&lt;path_to_shared_folder&
 </pre>
 
 Congratulations ... you have now achieved what you set out to do:
-> <h3>Goals</h3>
+> <h3>TO DO</h3>
 > <hr />
 > - [X] Created a *DockerHub* user.
 > - [X] Downloaded and installed *Docker Desktop*.
@@ -213,7 +213,7 @@ Before we go any further, *macOS* folk (and *Windows* folk unfamiliar with CLI):
 
 Your *macOS* `Terminal` prompt looks something like this:
 <pre>
-<i>&lt;your_user_name&gt;</i>@<i>&lt;your_hostname_name&gt;</i> <i>&lt;current_folder&gt;</i> % <b>&block;</b>
+<i>&lt;your_USER_name&gt;</i>@<i>&lt;your_HOST_name&gt;</i> <i>&lt;current_folder&gt;</i> % <b>&block;</b>
 </pre>
 
 And for completeness, the *Windows* `Command Prompt` looks something like this:
