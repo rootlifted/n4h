@@ -4,7 +4,7 @@ title: "Baby Step 2: Learning to walk"
 description: "<b>Baby Step 2:</b> Learning to walk"
 summary: "Learn some basic commands and how they are strung together."
 comments: false
-tags: [basicnix,cd,clear,ls,path delimiter,pwd]
+tags: [basicnix,cd,clear,ls,pathdelimiter,pwd]
 ---
 
 Right. Now that you have downloaded, installed and learnt the rudiments of our chosen containerisation solution, called *Docker*, we are ready to step into the vast ocean of `*nix`.
