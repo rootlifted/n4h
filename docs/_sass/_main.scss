@@ -278,6 +278,11 @@ section {
 
 small {
 	font-size: 0.5rem;
+	code {
+		font-style: normal;
+		font-family: Menlo, Consolas, monospace, sans-serif;
+		font-size: 0.4rem;
+	}
 }
 
 .task-list-item {
