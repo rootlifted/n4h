@@ -153,10 +153,10 @@ So, 19 lines and 926 characters in `passwd_test` file.
 **`rm`**<br />
 Right ... had enough fun? Let's remove the evidence. ;)
 <pre>
-root@f749d99eff10:/# <b>rm passwd_test</b>            # You could use some &lt;tab&gt;-completion here?
-root@f749d99eff10:~# <b>ls -l</b>
+root@f749d99eff10:/tmp# <b>rm passwd_test</b>            # You could use some &lt;tab&gt;-completion here?
+root@f749d99eff10:/tmp# <b>ls -l</b>
 total 0
-root@f749d99eff10:/root# <b>&block;</b>
+root@f749d99eff10:/tmp# <b>&block;</b>
 </pre>
 
 All of these commands have ***much*** more to offer, this is just to get you off the mark in terms of actually being able to copy, inspect, sort, move, rename and delete data for future experiments. If you're burning with curiosity, how about trying out the tricks in the previous article to learn more about these commands.
