@@ -10,7 +10,7 @@ tags: [basicnix,built-ins,cat,cp,head,mv,rm,sort,tail,wc]
 So far, we've been walking around the `*nix` filesystem, browsing. Probably like some teenager who accidentally stumbles into a poorly guarded military warehouse. Having not the faintest clue what the contents are and what they are used for.
 
 **`cat`**<br />
-This command (short for con**`cat`**enate) is generally/primarily used to vomit the contents of a file onto the screen (or another command). The verb was used advisedly, since it is a no-holds-barred fire-hydrant torrent of data sprayed at your screen with little control.
+This command (short for con**`cat`**enate) is generally/primarily used to vomit the contents of files onto the screen (or another command). The verb was used advisedly, since it is a no-holds-barred fire-hydrant torrent of data sprayed at your screen with little control.
 <pre>
 root@f749d99eff10:/# <b>cat /etc/passwd</b>
 root:x:0:0:root:/root:/bin/bash
