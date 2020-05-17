@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Baby Step 4: Let's manipulate the file-system"
-description: "<b>Baby Step 4:</b> Let's manipulate the file-system"
+title: "Baby Step 4: Let's manipulate the filesystem"
+description: "<b>Baby Step 4:</b> Let's manipulate the filesystem"
 summary: "How to look at file contents, and manipulate folders."
 comments: false
 tags: [basic nix,built-ins,cat,cp,head,mv,rm,sort,tail,wc]
@@ -47,10 +47,10 @@ sys:x:3:3:sys:/dev:/usr/sbin/nologin
 sync:x:4:65534:sync:/bin:/bin/sync
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
-Much better.
+Displaying only the first five lines at the **`head`** of the file.
 
 **`tail`**<br />
-Typically though, in the case of massive logs, one is more interested in the last (most recently) added lines, and would possibly like to keep following any updates as they are appended to the log file, like so...
+Typically though, in the case of massive logs, one is more interested in the last (most recently) added lines, and would possibly like to keep following any updates as they are appended to the **`tail`** of the log file, like so...
 <pre>
 root@f749d99eff10:/# <b>tail -f /var/log/dpkg.log</b>
 2020-05-16 21:47:11 configure less:amd64 487-0.1 &lt;none&gt;
@@ -66,10 +66,10 @@ root@f749d99eff10:/# <b>tail -f /var/log/dpkg.log</b>
 <b>^C</b>
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
-So, that displayed the last few lines of the log file `/var/log/dpkg.log` and would keep adding any updates until interrupted (by pressing &lt;Ctrl&gt;-C). If you are following along, that file is only updated if new packages are installed (so not really frequently enough to merit the `-f` argument).
+So, that displayed the last few lines of the log file `/var/log/dpkg.log` and would keep adding any updates until interrupted (by pressing `<Ctrl>-C`). If you are following along, that file is only updated if new packages are installed, so not really sufficiently frequently to merit the `-f` (follow) argument.
 
 **`cp`**<br />
-Let's say we wish to make a copy of the earlier important system file `/etc/passwd` (which should ***really*** not be corrupted, since it contains the list of all users on the system, their UserIDs, GroupIDs, home folders and startup shells) to our home folder. How would we go about that?
+Let's say we wish to make a **`c`**o**`p`**y of the earlier important system file `/etc/passwd` (which should ***really*** not be corrupted, since it contains the list of all users on the system, their UserIDs, GroupIDs, home folders and startup shells) to our home folder. How would we go about that?
 <pre>
 root@f749d99eff10:/# <b>cp /e</b>                     # Press &lt;tab&gt; to complete to...
 root@f749d99eff10:/# <b>cp /etc/</b>                  # Type 'pas' and press &lt;tab&gt; to complete to...
@@ -140,11 +140,11 @@ root@f749d99eff10:/tmp# <b>&block;</b>
 We will return to the *mighty* **`sort`** in future, it has *much* more to offer.
 
 **`wc`**<br />
-Another extremely frequently used command, is one **`w`**ord **`c`**ount...
+Another extremely frequently used command, is **`w`**ord **`c`**ount...
 <pre>
-root@f749d99eff10:/tmp# <b>wc -l passwd_test</b>
+root@f749d99eff10:/tmp# <b>wc -l passwd_test</b>      # You could use some &lt;tab&gt;-completion here?
 19 passwd_test
-root@f749d99eff10:/tmp# <b>wc -m passwd_test</b>
+root@f749d99eff10:/tmp# <b>wc -m passwd_test</b>      # You could use some &lt;tab&gt;-completion here?
 926 passwd_test
 root@f749d99eff10:/tmp# <b>&block;</b>
 </pre>
@@ -153,9 +153,7 @@ So, 19 lines and 926 characters in `passwd_test` file.
 **`rm`**<br />
 Right ... had enough fun? Let's remove the evidence. ;)
 <pre>
-root@f749d99eff10:/# <b>rm p</b>
-# Press &lt;tab&gt; to complete to...
-root@f749d99eff10:/# <b>rm passwd_test</b>
+root@f749d99eff10:/# <b>rm passwd_test</b>            # You could use some &lt;tab&gt;-completion here?
 root@f749d99eff10:~# <b>ls -l</b>
 total 0
 root@f749d99eff10:/root# <b>&block;</b>
