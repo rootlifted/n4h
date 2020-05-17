@@ -290,7 +290,7 @@ SEE ALSO
  Manual page tee(1) line 9/57 (END) (press h for help or q to quit)
 </pre> 
 
-No remember how macOS stubbornly refused to play ball with **`tee --version`** and **`tee --help`**, let's try **`man tee`**?
+Now remember how macOS stubbornly refused to play ball with **`tee --version`** and **`tee --help`**? Let's try **`man tee`** on macOS:
 <pre>
 TEE(1)                    <b>BSD</b> General Commands Manual                   TEE(1)
 
@@ -328,3 +328,5 @@ There you have a classic example of how Ubuntu and macOS are both "`*nix`". ;)
 You should now be able to find clues to your `*nix` questions, even without an Internet link.
 
 <small>However, I will concede it is sometimes easier to search a very specific problem online.</small>
+
+Next time we'll start doing things to/with files/folders.
