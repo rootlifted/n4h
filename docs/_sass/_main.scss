@@ -49,6 +49,9 @@ a:hover {
 		color: #909090;
 		text-decoration: none;
 	}
+	a:hover {
+		color: #B0CB21;
+	}
 }
 
 pre {
@@ -285,6 +288,9 @@ small {
 		font-style: normal;
 		font-family: Menlo, Consolas, monospace, sans-serif;
 		font-size: 0.4rem;
+	}
+	a:hover {
+		color: #B0CB21;
 	}
 }
 

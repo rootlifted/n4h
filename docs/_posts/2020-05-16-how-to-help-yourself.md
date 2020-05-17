@@ -4,7 +4,7 @@ title: "Baby Step 3: How to help yourself"
 description: "<b>Baby Step 3:</b> How to help yourself"
 summary: "How to to find help on commands and their usage."
 comments: false
-tags: [basic nix,bash built-ins,help,man]
+tags: [basicnix,bash built-ins,help,man]
 ---
 
 So now that we can:

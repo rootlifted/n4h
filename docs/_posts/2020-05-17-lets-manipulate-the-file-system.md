@@ -4,7 +4,7 @@ title: "Baby Step 4: Let's manipulate the filesystem"
 description: "<b>Baby Step 4:</b> Let's manipulate the filesystem"
 summary: "How to look at file contents, and manipulate folders."
 comments: false
-tags: [basic nix,built-ins,cat,cp,head,mv,rm,sort,tail,wc]
+tags: [basicnix,built-ins,cat,cp,head,mv,rm,sort,tail,wc]
 ---
 
 So far, we've been walking around the `*nix` filesystem, browsing. Probably like some teenager who accidentally stumbles into a poorly guarded military warehouse. Having not the faintest clue what the contents are and what they are used for.

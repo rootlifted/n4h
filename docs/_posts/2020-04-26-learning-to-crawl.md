@@ -4,7 +4,7 @@ title: "Baby Step 1: Learning to crawl"
 description: "<b>Baby Step 1:</b> Learning to crawl"
 summary: "Learn some basic commands and how they are strung together."
 comments: false
-tags: [basic docker,commands,housekeeping]
+tags: [basicdocker,commands,housekeeping]
 ---
 
 Let's first cover the *Docker* basics you may need to support your out-of-control `*nix` habit. On the CLI (`Terminal` in *macOS* and `Command Prompt` in *Windows*) i.e. ***outside*** your container, this is how you list *Docker* containers:
