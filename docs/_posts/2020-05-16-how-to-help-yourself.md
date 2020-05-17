@@ -4,7 +4,7 @@ title: "Baby Step 3: How to help yourself"
 description: "<b>Baby Step 3:</b> How to help yourself"
 summary: "How to to find help on commands and their usage."
 comments: false
-tags: [basic nix,built-ins,commands,enable,help,man]
+tags: [basic nix,bash built-ins,help,man]
 ---
 
 So now that we can:
@@ -54,7 +54,7 @@ Sorry, I digress. There are arcane volumes you can reach for when you need to re
 > 
 > <small>\* This command will work ***only*** on GNU `bash` which is fairly ubiquitous in the wild, and is obviously the shell used in `ubuntu` (and thus `n4h`) *Docker* images, and therefore your container.</small><br />
 > <small>\*\* Almost all GNU commands support `--version` and `--help`, some BSD commands may have this.</small><br />
-> <small>\*\*\* In minimalist server installations (and in Docker images) the manual pages are typically not installed to save space.</small>
+> <small>\*\*\* In minimalist server installations (and in *Docker* images) the manual pages are typically not installed to save space.</small>
 
 As you can see below, **`help`** (not unlike **`docker help`**) shows all the `bash` built-ins for which help is available:
 <pre>

@@ -4,12 +4,12 @@ title: "Baby Step 2: Learning to walk"
 description: "<b>Baby Step 2:</b> Learning to walk"
 summary: "Learn some basic commands and how they are strung together."
 comments: false
-tags: [basic nix,cd,clear,commands,ls,path delimiter,pwd]
+tags: [basic nix,cd,clear,ls,path delimiter,pwd]
 ---
 
 Right. Now that you have downloaded, installed and learnt the rudiments of our chosen containerisation solution, called *Docker*, we are ready to step into the vast ocean of `*nix`.
 
-You may recall that shortly after completing your Docker installation, you were instructed to execute a command (**`ls -l`**) to confirm that your new `n4h_sandbox` container was correctly created and working. Let's start the `n4h_sandbox` container, attach to it, and repeat this command:
+You may recall that shortly after completing your *Docker* installation, you were instructed to execute a command (**`ls -l`**) to confirm that your new `n4h_sandbox` container was correctly created and working. Let's start the `n4h_sandbox` container, attach to it, and repeat this command:
 <pre>
 user@host ~ % <b>docker container ls -l</b>
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                   PORTS               NAMES
