@@ -24,9 +24,9 @@ It may be prudent to empower you to find the information you're looking for, fas
 > 
 > Just to be clear, this entire `*nix`4*humans* effort assumes reasonably up-to-date versions of GNU binaries, which you *absolutely* have in your `n4h` container, and is almost certainly present on most modern corporate Linux servers (like [RedHat Enterprise Linux](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux) or [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu)) in your employer's data-centre.
 > 
-> However I *know* from personal experience, that there are some dark, *unspeakably* filthy corners in companies that I have worked for, that probably right now still have dust-caked [Solaris](https://en.wikipedia.org/wiki/Solaris_(operating_system)) 9, [HP-UX]> (https://en.wikipedia.org/wiki/HP-UX) 10, [AIX](https://en.wikipedia.org/wiki/IBM_AIX) 6 or [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD) 9 servers in racks ... that they don't even know exist.
+> However I ***know*** (from personal experience) that there are some dark, *unspeakably* filthy corners in companies that I have worked for, that probably right now still have dust-caked [Solaris](https://en.wikipedia.org/wiki/Solaris_(operating_system)) 9, [HP-UX](https://en.wikipedia.org/wiki/HP-UX) 10, [AIX](https://en.wikipedia.org/wiki/IBM_AIX) 6 or [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD) 9 servers in racks ... that they don't even know exist.
 > 
-> Also there are are some exotic special flavours of `*nix` like:
+> Also there are some exotic special flavours of `*nix` like:
 > * [macOS](https://en.wikipedia.org/wiki/MacOS) (Apple took BSD and *obviously* diverged on their own weird tangent for decades)
 > * [OpenBSD](https://en.wikipedia.org/wiki/OpenBSD) (BSD that has been heavily security audited and nearly rebuilt)
 > * [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) (Google uses [ToyBox](https://en.wikipedia.org/wiki/Toybox) as a pared down substitute of coreutils),
@@ -48,7 +48,7 @@ Sorry, I digress. There are arcane volumes you can reach for when you need to re
 > DIY Incantation Assistance:
 > 
 > * **`help`** : If you need to look up shell 'built-ins' like `cd` or `pwd` or `kill`.\*
-> * **`<command> --help`** : If you quickly want to verify a commandline option/switch/argument.\*\*
+> * **`<command> --help`** : If you quickly want to verify a command line option/switch/argument.\*\*
 > * **`man <command>`** : Very thorough searchable [manual](http://linuxcommand.org/lc3_man_pages/ls1.html) entries on the specified `*nix` command (like the JDK [docs](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/StringBuilder.html) or .NET [docs](https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder) page if you're a developer).\*\*\*
 > * **`www`** : And finally, ask the Internet [obviously](https://lmgtfy.com/?q=gnu+ls+documentation&s=d).
 > 
@@ -56,7 +56,7 @@ Sorry, I digress. There are arcane volumes you can reach for when you need to re
 > <small>\*\* Almost all GNU commands support `--version` and `--help`, some BSD commands may have this.</small><br />
 > <small>\*\*\* In minimalist server installations (and in Docker images) the manual pages are typically not installed to save space.</small>
 
-As you can see, below, **`help`** (not unlike **`docker help`**, shows all the `bash` built-ins for which help is available):
+As you can see below, **`help`** (not unlike **`docker help`**) shows all the `bash` built-ins for which help is available:
 <pre>
 root@f749d99eff10:/usr/bin# <b>help</b>
 <b>GNU bash</b>, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
