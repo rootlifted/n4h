@@ -56,6 +56,9 @@ Sorry, I digress. There are arcane volumes you can reach for when you need to re
 > <small>\*\* Almost all GNU commands support `--version` and `--help`, some BSD commands may have this.</small><br />
 > <small>\*\*\* In minimalist server installations (and in *Docker* images) the manual pages are typically not installed to save space.</small>
 
+<br />
+**`help`**<br />
+<hr />
 As you can see below, **`help`** (not unlike **`docker help`**) shows all the `bash` built-ins for which help is available:
 <pre>
 root@f749d99eff10:~# <b>help</b>
@@ -155,6 +158,9 @@ user@host % <b>help</b>
 user@host % <b>&block;</b>
 </pre>
 
+<br />
+**`<command> --help`**<br />
+<hr />
 So let's try the **`<command> --help`** trick inside our `n4h` *Docker* image:
 <pre>
 root@f749d99eff10:~# <b>tee --help</b>
@@ -204,6 +210,9 @@ usage: tee [-ai] [file ...]
 user@host %  <b>&block;</b>
 </pre>
 
+<br />
+**`man <command>`**<br />
+<hr />
 And now we finally get to the `*nix` online reference **`man`**ual. Let us first see what it looks like when it is not present. Worst case:
 <pre>
 noddy@server:~# <b>man</b>
