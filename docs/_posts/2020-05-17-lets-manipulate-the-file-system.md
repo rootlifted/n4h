@@ -34,7 +34,11 @@ nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
 _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
-So **`cat`** spewed ALL the contents of a file named `passwd` (in the directory `/etc`) onto the screen. We could also have done **`cd /etc`** followed by **`cat passwd`**, which would have achieved exactly the same. So long as the first argument is a valid file, and the second is a valid directory there are any number of valid ways to achieve the same result.
+So **`cat`** spewed ALL the contents of a file named `passwd` (in the directory `/etc`) onto the screen. We could also have done **`cd /etc`** followed by **`cat passwd`**, which would have achieved exactly the same. In `*nix` any of the following will do the job:
+* Use an absolute path (i.e. `cat /abc/def/ghi/jkl` ... assuming `jkl` is a valid file.)
+* Use a relative descendant path (i.e. `cd /abc/def; cat ghi/jkl` ... so no need to reference from root)
+* Use a relative ancestor path (i.e. `cd /abc/def/mno/pqr; cat ../../ghi/jkl` ... so no need to reference only child directories either, parents are fair game)
+* And the simplest case, local (i.e. `cd /abc/def/ghi; cat jkl` ... which is the way novices typically start)
 
 **`head`**<br />
 What if that file had say two million rows? A typical console window is 80x25 characters by default (160x50 if you've configured it like a hacker). Two million divide by fifty lines is forty thousand screens of guff. Not good. So how do we manage the data deluge?

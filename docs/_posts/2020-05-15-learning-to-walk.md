@@ -11,12 +11,12 @@ Right. Now that you have downloaded, installed and learnt the rudiments of our c
 
 You may recall that shortly after completing your *Docker* installation, you were instructed to execute a command (**`ls -l`**) to confirm that your new `n4h_sandbox` container was correctly created and working. Let's start the `n4h_sandbox` container, attach to it, and repeat this command:
 <pre>
-user@host ~ % <b>docker container ls -l</b>
+C:\WINDOWS><b>docker container ls -l</b>
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                   PORTS               NAMES
 <b>f749d99eff10        rootlifted/n4h</b>      "/bin/bash"         2 weeks ago         Exited (0) 13 days ago                       <b>n4h_sandbox</b>
-user@host ~ % <b>docker container start n4h_sandbox</b>
+C:\WINDOWS><b>docker container start n4h_sandbox</b>
 n4h_sandbox
-user@host ~ % <b>docker container attach n4h_sandbox</b>
+C:\WINDOWS><b>docker container attach n4h_sandbox</b>
 root@f749d99eff10:/# <b>ls -l</b>
 total 72
 drwxr-xr-x   1 root root 4096 Apr 25 20:46 bin
@@ -89,7 +89,7 @@ root@f749d99eff10:/usr/bin# <b>&block;</b>
 
 Now, let's say you were curious to see the files in this `/usr/bin` directory, how would you see all there is to see about its contents? That's right...
 <pre>
-root@f749d99eff10:/# <b>ls -l</b>
+root@f749d99eff10:/usr/bin# <b>ls -l</b>
 total 20512
 -rwxr-xr-x 1 root root     51384 Jan 18  2018 '['
 -rwxr-xr-x 1 root root     22608 Mar  5 17:23  addpart
@@ -147,13 +147,10 @@ dr-xr-xr-x  12 root root    0 May 16 12:29 sys
 drwxrwxrwt   1 root root 4096 May  2 17:27 tmp
 drwxr-xr-x   1 root root 4096 Apr  3 17:12 usr
 drwxr-xr-x   1 root root 4096 Apr  3 17:14 var
-root@f749d99eff10:/# <b>cd l</b>
-# Pressing tab completes this to:
-root@f749d99eff10:/# <b>cd lib</b>
-# Which is not sufficiently unique to fully autocomplete.
-# Double-pressing tab again displays the completion options...
-lib/   lib64/
-# Then typing 6 (to provide a completion hint) and tab again completes full autocomplete.
+root@f749d99eff10:/# <b>cd l</b>                      # Pressing tab completes this to...
+root@f749d99eff10:/# <b>cd lib</b>                    # Which is not sufficiently unique to fully autocomplete.
+                                               # Double-pressing tab again displays your completion options...
+lib/   lib64/                                  # Then typing 6 (to provide a completion hint) and tab again completes full autocomplete...
 root@f749d99eff10:/# <b>cd lib64/</b>
 root@f749d99eff10:/lib64# <b>&block;</b>
 </pre>
@@ -169,10 +166,10 @@ root@f749d99eff10:~# <b>&block;</b>
 
 Another trick up **`cd`**'s sleeve is **`cd -`**, which takes you to the last directory you were in before **`cd`**-ing to the current one.
 <pre>
-root@f749d99eff10:/usr/bin# <b>cd lib64/</b>
+root@f749d99eff10:~# <b>cd lib64/</b>
 root@f749d99eff10:/lib64# cd -
-/usr/bin
-root@f749d99eff10:/lib64# <b>&block;</b>
+/root
+root@f749d99eff10:~# <b>&block;</b>
 </pre>
 
 And that is all for today, since we know working professionals don't have hours of spare time.

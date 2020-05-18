@@ -58,7 +58,7 @@ Sorry, I digress. There are arcane volumes you can reach for when you need to re
 
 As you can see below, **`help`** (not unlike **`docker help`**) shows all the `bash` built-ins for which help is available:
 <pre>
-root@f749d99eff10:/usr/bin# <b>help</b>
+root@f749d99eff10:~# <b>help</b>
 <b>GNU bash</b>, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
 These shell commands are defined internally.  Type `help' to see this list.
 Type `help name' to find out more about the function `name'.
@@ -105,7 +105,7 @@ A star (*) next to a name means that the command is disabled.
  getopts optstring name [arg]                                                    wait [-n] [id ...]
  hash [-lr] [-p pathname] [-dt] [name ...]                                       while COMMANDS; do COMMANDS; done
  help [-dms] [pattern ...]                                                       { COMMANDS ; }
-root@f749d99eff10:/# <b>&block;</b>
+root@f749d99eff10:~# <b>&block;</b>
 </pre>
 
 **`help`** for a specific `bash` built-in command (in this case **`cd`**):
@@ -223,9 +223,9 @@ root@ubuntu_container:/# <b>&block;</b>
 
 And now ... *finally* ... in your `n4h` container:
 <pre>
-root@f749d99eff10:/usr/bin# <b>man</b>
+root@f749d99eff10:~# <b>man</b>
 What manual page do you want?
-root@f749d99eff10:/# <b>&block;</b>
+root@f749d99eff10:~# <b>&block;</b>
 </pre>
 
 Oooh. Let's use the **`tee`** command. I know we've not discussed it, but it is super simple and therefore short, and perhaps it illustrates the benefit of a manual page. ;)
