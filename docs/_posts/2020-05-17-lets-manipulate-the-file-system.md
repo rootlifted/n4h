@@ -4,13 +4,13 @@ title: "Baby Step 4: Let's manipulate the filesystem"
 description: "<b>Baby Step 4:</b> Let's manipulate the filesystem"
 summary: "How to look at file contents, and manipulate folders."
 comments: false
-tags: [basicnix,built-ins,cat,cp,head,mv,rm,sort,tail,wc]
+tags: [basicnix,cat,cp,head,mv,rm,sort,tail,wc]
 ---
 
 So far, we've been walking around the `*nix` filesystem, browsing. Probably like some teenager who accidentally stumbles into a poorly guarded military warehouse. Having not the faintest clue what the contents are and what they are used for.
 
 <br />
-**`cat`**<br />
+**`cat`**
 <hr />
 This command (short for con**`cat`**enate) is generally/primarily used to vomit the contents of files onto the screen (or another command). The verb was used advisedly, since it is a no-holds-barred fire-hydrant torrent of data sprayed at your screen with little control.
 <pre>
@@ -43,7 +43,7 @@ So **`cat`** spewed ALL the contents of a file named `passwd` (in the directory 
 * And the simplest case, local (i.e. `cd /abc/def/ghi; cat jkl` ... which is the way novices typically start)
 
 <br />
-**`head`**<br />
+**`head`**
 <hr />
 What if that file had say two million rows? A typical console window is 80x25 characters by default (160x50 if you've configured it like a hacker). Two million divide by fifty lines is forty thousand screens of guff. Not good. So how do we manage the data deluge?
 <pre>
@@ -58,7 +58,7 @@ root@f749d99eff10:/# <b>&block;</b>
 Displaying only the first five lines at the **`head`** of the file.
 
 <br />
-**`tail`**<br />
+**`tail`**
 <hr />
 Typically though, in the case of massive logs, one is more interested in the last (most recently) added lines, and would possibly like to keep following any updates as they are appended to the **`tail`** of the log file, like so...
 <pre>
@@ -79,7 +79,7 @@ root@f749d99eff10:/# <b>&block;</b>
 So, that displayed the last few lines of the log file `/var/log/dpkg.log` and would keep adding any updates until interrupted (by pressing `<Ctrl>-C`). If you are following along, that file is only updated if new packages are installed, so not really sufficiently frequently to merit the `-f` (follow) argument.
 
 <br />
-**`cp`**<br />
+**`cp`**
 <hr />
 Let's say we wish to make a **`c`**o**`p`**y of the earlier important system file `/etc/passwd` (which should ***really*** not be corrupted, since it contains the list of all users on the system, their UserIDs, GroupIDs, home folders and startup shells) to our home folder. How would we go about that?
 <pre>
@@ -99,7 +99,7 @@ Tab completion will become a way of life, and you'll get annoyed with software t
 Since we're traipsing about as titans, `~` ends up being `/root` (for other regular users it would typically be `/home/<username>`). So we have now made a copy of the file `/etc/passwd` into the folder `/root`. Where we can safely mess around with it.
 
 <br />
-**`mv`**<br />
+**`mv`**
 <hr />
 Suppose we wish to rename the file to add a prefix or suffix to the file name?
 <pre>
@@ -127,7 +127,7 @@ root@f749d99eff10:/tmp# <b>&block;</b>
 Quite straightforward really.
 
 <br />
-**`sort`**<br />
+**`sort`**
 <hr />
 Perhaps you need the contents of the file sorted?
 <pre>
@@ -156,7 +156,7 @@ root@f749d99eff10:/tmp# <b>&block;</b>
 We will return to the *mighty* **`sort`** in future, it has *much* more to offer.
 
 <br />
-**`wc`**<br />
+**`wc`**
 <hr />
 Another extremely frequently used command, is **`w`**ord **`c`**ount...
 <pre>
@@ -169,7 +169,7 @@ root@f749d99eff10:/tmp# <b>&block;</b>
 So, 19 lines and 926 characters in `passwd_test` file.
 
 <br />
-**`rm`**<br />
+**`rm`**
 <hr />
 Right ... had enough fun? Let's remove the evidence. ;)
 <pre>
