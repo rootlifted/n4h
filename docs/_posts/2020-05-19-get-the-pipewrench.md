@@ -11,7 +11,7 @@ By now, I fear some impatient folk are sighing loudly and rolling their eyes, mu
 
 I have, and I will. I promise.
 
-We are currently stumbling slowly through the tedium of learning the alphabet. Writing *effortlessly-wins-armies-of-besotted-lovers-level* prose ... is still some way off in the future. However, I am confident that if you remain diligent, you will not regret your investment. So far we have set you up with a gym in which to hone your skills and some basic tools to empower your learning. From now on the pace will steadily increase, in step with your growing command of your newfound powers.
+We are currently stumbling slowly through the tedium of learning the alphabet. Writing *effortlessly-wins-armies-of-besotted-lovers* level prose ... is still some way off. However, I am confident that if you remain diligent, you will not regret your investment. So far we have set you up with a gym in which to hone your skills and some basic tools to empower your learning. From now on the pace will steadily increase, in step with your growing command of your newfound powers.
 
 > <img src="{{site.url}}/{{site.baseurl}}/assets/UnixPhilosophy1978.png" width="400" height="300" />
 > 
@@ -21,10 +21,13 @@ We are currently stumbling slowly through the tedium of learning the alphabet. W
 
 So we have a [plethora]({{site.url}}/{{site.baseurl}}/assets/plethora.gif) of small, solid, single-function commands, CHECK!
 
-So how do we level up?
+How do we level up?
 
-We take the output of one program, and make it the input of another. You will see in time just how powerful this concept is. The magical operator that acts as the plumbing that connects commands, is called a *pipe* and looks like this: `|`. But before I illustrate how this is done, let's first learn the *absolute basics* of arguably the ***most*** important `*nix` command you will ever learn.
+We take the output (a stream called `std_out`) of one program (or command), and make it the input (a stream called `std_in`) of another. You will see in time just how powerful this concept is. The magical operator that acts as the plumbing that connects commands, is called a *pipe* and looks like this: `|`.
 
+But before I illustrate how this is done, let's first learn the *absolute basics* of arguably the ***most*** important `*nix` command you will ever learn.
+
+<br />
 **`grep`**
 <hr />
 **`g`**lobal **`r`**egular **`e`**xpression **`p`**rint is to 'Find', what [Zeus](https://en.wikipedia.org/wiki/Zeus) is to [Perseus](https://en.wikipedia.org/wiki/Perseus). Remember the `/etc/passwd` file?
@@ -71,7 +74,11 @@ root@f749d99eff10:/# <b>&block;</b>
 
 In ways that you cannot even begin to imagine.
 
-So for our first example of laying some pipe, what if we wanted to count how many lines there are in the `/etc/passwd` file?
+
+<br />
+**Piping**
+<hr />
+For our first example of laying some pipe, what if we wanted to count how many lines there are in the `/etc/passwd` file?
 
 *"Easy"* you say, *"like we've totally done this."*
 <pre>
@@ -81,13 +88,13 @@ root@f749d99eff10:/# <b>&block;</b>
 </pre>
 Great! Well remembered.
 
-So how would one count *only the lines that contain the text `var`*?
+Now, how would one count *only the lines that contain the text `'var'`*?
 
 *"Well, maybe you'd pipe the output of **`grep 'var' /etc/passwd`** into **`wc`**?"*
 
 Exactly! It makes so much sense right? Like a conveyor belt.
 
-We have **`grep`** that churns out some lines from a specified file, based a provided argument. Then we simply plug **`grep`**'s output, into something that counts (and we specify exactly how we want it counted, with an argument).
+We have **`grep`** that churns out some lines from a specified file (`/etc/passwd`) which is a selection based on a provided argument (`'var'`). Then we simply plug **`grep`**'s `std_out` into the `std_in` of something that can count things i.e. **`wc`**, and specify exactly how we want it counted, with an argument (`-l`).
 
 <pre>
 root@f749d99eff10:/# <b>grep 'var' /etc/passwd | wc -l</b>
@@ -96,11 +103,11 @@ root@f749d99eff10:/# <b>&block;</b>
 </pre>
 Notice how **`wc`** now does not display the `/etc/passwd` filename, why?
 
-**`grep`** got its input from `/etc/passwd`, we then pipe these lines of output (which is a stream called `std_out`) into the `std_in` of **`wc`** whose `std_out` is then displayed on the screen.
+**`grep`** got its input from `/etc/passwd`, we then pipe **`grep`**'s `std_out` into **`wc`**'s `std_in` which means **`wc`** has only the piped data, not metadata/context of where it originally was sourced.
 
-So, if I asked you to show me only the lines containing the text `var` ... but sorted. You think you could manage?
+So, if I asked you to show me only the lines containing the text `'var'` ... but sorted. You think you could manage?
 
-*"Sure. Just pipe **`grep`**'s output into **`sort`** instead of **`wc`**"*
+*"Sure. Just pipe the prior **`grep`** command's output, into **`sort`** instead of **`wc -l`**"*
 
 <pre>
 root@f749d99eff10:/# <b>grep 'var' /etc/passwd | sort</b>
@@ -154,8 +161,8 @@ root@f749d99eff10:/# <b>cat /etc/passwd | cut -d ':' -f 7</b>
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-**`sort`** will obviously sort the records. And then the next unknown seems to count the number of occurrences of each unique string ... almost like `SELECT FIELD, COUNT(ID) FROM TABLE GROUP BY FIELD` would have done in SQL.
+*"**`sort`** will obviously order the lines. And then the next "unknown" (**`uniq -c`**) ostensibly counts the number of occurrences of each unique string ... almost like `SELECT FIELD, COUNT(ID) FROM TABLE GROUP BY FIELD` would have done in SQL."*
 
-Spot on. And keep those SQL skills on hand if you have them because there are many more text analogies of SQL queries to come.
+Spot on! And keep those SQL skills on hand if you have them because there are many more text analogies of SQL queries to come.
 
-Next time I'll be showing the tip of the sort iceberg (to illustrate how deep the rabbit-hole goes on a single command, and there are hundreds of commands). I will also show you the **`wget`** command to pull down some data from the IntarWebz.
+Next time I'll be lifting **`sort`**'s skirt to illustrate just how much more hidden power there is to a single command (and there are hundreds of commands). I might also show you the **`wget`** command to pull down some data to experiment with from the IntarWebz.
