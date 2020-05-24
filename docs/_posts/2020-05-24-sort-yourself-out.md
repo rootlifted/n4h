@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Baby Step 5: Get the pipe-wrench"
-description: "<b>Baby Step 5:</b> Get the pipe-wrench"
+title: "Baby Step 6: Sort yourself out"
+description: "<b>Baby Step 6:</b> Sort yourself out"
 summary: "Unleashing the true power of the *nix CLI."
 comments: false
 tags: [basicnix,cut,grep,pipe]
