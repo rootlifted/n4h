@@ -2,167 +2,241 @@
 layout: post
 title: "Baby Step 6: Sort yourself out"
 description: "<b>Baby Step 6:</b> Sort yourself out"
-summary: "Unleashing the true power of the *nix CLI."
+summary: "Showing the flexibility of the sort command."
 comments: false
-tags: [basicnix,cut,grep,pipe]
+tags: [basicnix,curl,sort,wget]
 ---
 
-By now, I fear some impatient folk are sighing loudly and rolling their eyes, muttering: *"[He promised to show us real ultimate power](http://realultimatepower.net)."*
+We've already covered the trivial example of **`sort`**, i.e. without arguments (which basically sorts lines lexically, comparing left-most characters first, smallest to largest ASCII values). As you have seen already, that is a very useful tool.
 
-I have, and I will. I promise.
+Now. Suppose you were given the following request:
+1. Display only the `user name`, `user id`, `user home`, `user shell` fields of the `/etc/passwd` file.
+2. Sort on the `user id` field *exclusively*.
+3. ...and more specifically in reverse *numerical* order.
 
-We are currently stumbling slowly through the tedium of learning the alphabet. Writing *effortlessly-wins-armies-of-besotted-lovers* level prose ... is still some way off. However, I am confident that if you remain diligent, you will not regret your investment. So far we have set you up with a gym in which to hone your skills and some basic tools to empower your learning. From now on the pace will steadily increase, in step with your growing command of your newfound powers.
+Here is the solution:
 
-> <img src="{{site.url}}/{{site.baseurl}}/assets/UnixPhilosophy1978.png" width="400" height="300" />
-> 
-> <small>— FROM: [The Bell System Technical Journal, Jul-Aug 1978](https://archive.org/details/bstj57-6-1899/page/n3/mode/2up)</small>
-
-**`cat`** concatenates, **`cp`** copies, **`ls`** lists, **`mv`** moves, **`rm`** removes, **`sort`** sorts, **`wc`** counts etc. etc.
-
-So we have a [plethora]({{site.url}}/{{site.baseurl}}/assets/plethora.gif) of small, solid, single-function commands, CHECK!
-
-How do we level up?
-
-We take the output (a stream called `std_out`) of one program (or command), and make it the input (a stream called `std_in`) of another. You will see in time just how powerful this concept is. The magical operator that acts as the plumbing that connects commands, is called a *pipe* and looks like this: `|`.
-
-But before I illustrate how this is done, let's first learn the *absolute basics* of arguably the ***most*** important `*nix` command you will ever learn.
-
-<br />
-**`grep`**
-<hr />
-**`g`**lobal **`r`**egular **`e`**xpression **`p`**rint is to 'Find', what Zeus is to [Perseus](https://en.wikipedia.org/wiki/Perseus#Argive_genealogy_in_Greek_mythology). Remember the `/etc/passwd` file?
 <pre>
-root@f749d99eff10:/# <b>cat /etc/passwd</b>
-root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+root@f749d99eff10:/sbin# <b>cut /etc/passwd -d ':' -f 1,3,6,7 | sort -t ':' -k2nr,2</b>
+nobody:<b>65534</b>:/nonexistent:/usr/sbin/nologin
+_apt:<b>100</b>:/nonexistent:/usr/sbin/nologin
+gnats:<b>41</b>:/var/lib/gnats:/usr/sbin/nologin
+irc:<b>39</b>:/var/run/ircd:/usr/sbin/nologin
+list:<b>38</b>:/var/list:/usr/sbin/nologin
+backup:<b>34</b>:/var/backups:/usr/sbin/nologin
+www-data:<b>33</b>:/var/www:/usr/sbin/nologin
+proxy:<b>13</b>:/bin:/usr/sbin/nologin
+uucp:<b>10</b>:/var/spool/uucp:/usr/sbin/nologin
+news:<b>9</b>:/var/spool/news:/usr/sbin/nologin
+mail:<b>8</b>:/var/mail:/usr/sbin/nologin
+lp:<b>7</b>:/var/spool/lpd:/usr/sbin/nologin
+man:<b>6</b>:/var/cache/man:/usr/sbin/nologin
+games:<b>5</b>:/usr/games:/usr/sbin/nologin
+sync:<b>4</b>:/bin:/bin/sync
+sys:<b>3</b>:/dev:/usr/sbin/nologin
+bin:<b>2</b>:/bin:/usr/sbin/nologin
+daemon:<b>1</b>:/usr/sbin:/usr/sbin/nologin
+root:<b>0</b>:/root:/bin/bash
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-Check this:
-<pre>
-root@f749d99eff10:/# <b>grep 'var' /etc/passwd</b>
-man:x:6:12:man:/<b>var</b>/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/<b>var</b>/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/<b>var</b>/mail:/usr/sbin/nologin
-news:x:9:9:news:/<b>var</b>/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/<b>var</b>/spool/uucp:/usr/sbin/nologin
-www-data:x:33:33:www-data:/<b>var</b>/www:/usr/sbin/nologin
-backup:x:34:34:backup:/<b>var</b>/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/<b>var</b>/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/<b>var</b>/run/ircd:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting System (admin):/<b>var</b>/lib/gnats:/usr/sbin/nologin
-root@f749d99eff10:/# <b>&block;</b>
-</pre>
-*"So **`grep`** finds stuff?"*
+...and the explanation:
+1. `user name`, `user id`, `user home`, `user shell` are fields **`-f 1,3,6,7`**, obviously colon delimited **`-d ':'`**
+2. Sort on the `user id` *exclusively*, **`k2,2`** (remember, this is the second field in the piped input, also note the delimiter is specified slightly differently, due to the fact that for **`sort`**, **`-d`** means **`d`**ictionary, so we use **`-t ':'`**)
+3. in *reverse* (**`r`**), *numerical* (**`n`**) order
 
-In ways that you cannot even begin to imagine.
-
-
-<br />
-**Piping**
-<hr />
-For our first example of laying some pipe, what if we wanted to count how many lines there are in the `/etc/passwd` file?
-
-*"Easy"* you say, *"like we've totally done this."*
-<pre>
-root@f749d99eff10:/# <b>wc -l /etc/passwd</b>
-<b>19</b> /etc/passwd
-root@f749d99eff10:/# <b>&block;</b>
-</pre>
-Great! Well remembered.
-
-Now, how would one count *only the lines that contain the text `'var'`*?
-
-*"Well, maybe you'd pipe the output of **`grep 'var' /etc/passwd`** into **`wc`**?"*
-
-Exactly! It makes so much sense right? Like a conveyor belt.
-
-We have **`grep`** that churns out some lines from a specified file (`/etc/passwd`) which is a selection based on a provided argument (`'var'`). Then we simply plug **`grep`**'s `std_out` into the `std_in` of something that can count things i.e. **`wc`**, and specify exactly how we want it counted, with an argument (`-l`).
+Now, let's complicate the ordering requirement even more: let's say that we want the `user home` field ordered in dictionary order, however values for this field are non-distinct, so to resolve the cases where a few records have the same value for this field, a secondary sort occurs on `user id` as an ascending *numeric* field.
 
 <pre>
-root@f749d99eff10:/# <b>grep 'var' /etc/passwd | wc -l</b>
-<b>10</b>
-root@f749d99eff10:/# <b>&block;</b>
-</pre>
-Notice how **`wc`** now does not display the `/etc/passwd` filename, why?
-
-**`grep`** got its input from `/etc/passwd`, we then pipe **`grep`**'s `std_out` into **`wc`**'s `std_in` which means **`wc`** has only the piped data, not metadata/context of where it originally was sourced.
-
-So, if I asked you to show me only the lines containing the text `'var'` ... but sorted. You think you could manage?
-
-*"Sure. Just pipe the prior **`grep`** command's output, into **`sort`** instead of **`wc -l`**"*
-
-<pre>
-root@f749d99eff10:/# <b>grep 'var' /etc/passwd | sort</b>
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+root@f749d99eff10:/sbin# <b>cut /etc/passwd -d ':' -f 1,3,6,7 | sort -t ':' -k3d,3 -k2n,2</b>
+bin:<b>2</b>:<b>/bin</b>:/usr/sbin/nologin
+sync:<b>4</b>:<b>/bin</b>:/bin/sync
+proxy:<b>13</b>:<b>/bin</b>:/usr/sbin/nologin
+sys:<b>3</b>:<b>/dev</b>:/usr/sbin/nologin
+_apt:<b>100</b>:<b>/nonexistent</b>:/usr/sbin/nologin
+nobody:<b>65534</b>:<b>/nonexistent</b>:/usr/sbin/nologin
+root:<b>0</b>:<b>/root</b>:/bin/bash
+games:<b>5</b>:<b>/usr/games</b>:/usr/sbin/nologin
+daemon:<b>1</b>:<b>/usr/sbin</b>:/usr/sbin/nologin
+backup:<b>34</b>:<b>/var/backups</b>:/usr/sbin/nologin
+man:<b>6</b>:<b>/var/cache/man</b>:/usr/sbin/nologin
+gnats:<b>41</b>:<b>/var/lib/gnats</b>:/usr/sbin/nologin
+list:<b>38</b>:<b>/var/list</b>:/usr/sbin/nologin
+mail:<b>8</b>:<b>/var/mail</b>:/usr/sbin/nologin
+irc:<b>39</b>:<b>/var/run/ircd</b>:/usr/sbin/nologin
+lp:<b>7</b>:<b>/var/spool/lpd</b>:/usr/sbin/nologin
+news:<b>9</b>:<b>/var/spool/news</b>:/usr/sbin/nologin
+uucp:<b>10</b>:<b>/var/spool/uucp</b>:/usr/sbin/nologin
+www-data:<b>33</b>:<b>/var/www</b>:/usr/sbin/nologin
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-EXACTLY! And it is this 'obviousness' of the plumbing paradigm that allows anyone to fairly quickly and easily string together a reasonably complex chain of operations in a predictable (not to mention powerful) way.
+Let me perhaps demonstrate one more interesting option.
 
-Now, I'm going to use two commands you've never seen, and I'd bet you'd be able to deduce the goal of my constructed pipeline:
+**`ls -lh`** displays file sizes with [SI prefix](https://en.wikipedia.org/wiki/Metric_prefix) (`K`, `M`, `G`, `T` etc) instead of bytes (bytes become a bit messy for quick/accurate human parsing beyond megabytes).
+
 <pre>
-root@f749d99eff10:/# <b>cat /etc/passwd | cut -d ':' -f 7 | sort | uniq -c</b>
-      <b>1</b> /bin/bash
-      <b>1</b> /bin/sync
-     <b>17</b> /usr/sbin/nologin
+root@f749d99eff10:/sbin# <b>ls -lh /sbin | sort -k5h,5</b>
+total 3.8M
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 fsck.ext2 -> e2fsck
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 fsck.ext3 -> e2fsck
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 fsck.ext4 -> e2fsck
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 mkfs.ext2 -> mke2fs
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 mkfs.ext3 -> mke2fs
+lrwxrwxrwx 1 root root       <b>6</b> Jan 22 14:40 mkfs.ext4 -> mke2fs
+lrwxrwxrwx 1 root root       <b>6</b> Mar  5 17:23 getty -> agetty
+lrwxrwxrwx 1 root root       <b>7</b> Jan 22 14:40 e2label -> tune2fs
+-rwxr-xr-x 1 root root      <b>17</b> Apr 24 01:07 initctl
+-rwxr-xr-x 1 root root     <b>387</b> Apr 16  2018 ldconfig
+-rwxr-xr-x 1 root root     <b>885</b> Mar 22  2019 shadowconfig
+-rwxr-xr-x 1 root root    <b>2.6K</b> Dec 30  2017 installkernel
+-rwxr-xr-x 1 root root    <b>6.0K</b> Nov  1  2017 fstab-decode
+-rwxr-xr-x 1 root root     <b>10K</b> Jan 22 14:40 logsave
+-rwxr-xr-x 1 root root     <b>11K</b> Feb 27  2019 pam_tally
+-rwxr-xr-x 1 root root     <b>11K</b> Mar  5 17:23 findfs
+-rwxr-xr-x 1 root root     <b>11K</b> Mar  5 17:23 fsfreeze
+-rwxr-xr-x 1 root root     <b>11K</b> Mar  5 17:23 mkfs
+-rwxr-xr-x 1 root root     <b>11K</b> Mar  5 17:23 pivot_root
+-rwxr-xr-x 1 root root     <b>15K</b> Feb 27  2019 pam_tally2
+-rwxr-xr-x 1 root root     <b>15K</b> Mar  5 17:23 raw
+-rwxr-xr-x 1 root root     <b>15K</b> Mar  5 17:23 swaplabel
+-rwxr-xr-x 1 root root     <b>15K</b> Mar  5 17:23 switch_root
+-rwxr-xr-x 1 root root     <b>19K</b> Feb 27  2019 mkhomedir_helper
+-rwxr-xr-x 1 root root     <b>19K</b> Jan 22 14:40 e2undo
+-rwxr-xr-x 1 root root     <b>19K</b> Mar  5 17:23 ctrlaltdel
+-rwxr-xr-x 1 root root     <b>19K</b> Mar  5 17:23 swapoff
+-rwxr-xr-x 1 root root     <b>23K</b> Aug  9  2019 sysctl
+-rwxr-xr-x 1 root root     <b>23K</b> Mar  5 17:23 chcpu
+-rwxr-xr-x 1 root root     <b>23K</b> Mar  5 17:23 isosize
+-rwxr-xr-x 1 root root     <b>23K</b> Nov  1  2017 killall5
+-rwxr-xr-x 1 root root     <b>27K</b> Jan 22 14:40 badblocks
+-rwxr-xr-x 1 root root     <b>27K</b> Jan 22 14:40 dumpe2fs
+-rwxr-xr-x 1 root root     <b>27K</b> Mar  5 17:23 blkdiscard
+-rwxr-xr-x 1 root root     <b>31K</b> Mar  5 17:23 mkfs.bfs
+-rwxr-sr-x 1 root shadow   <b>34K</b> Feb 27  2019 pam_extrausers_chkpwd
+-rwxr-sr-x 1 root shadow   <b>34K</b> Feb 27  2019 unix_chkpwd
+-rwxr-xr-x 1 root root     <b>34K</b> Feb 27  2019 pam_extrausers_update
+-rwxr-xr-x 1 root root     <b>34K</b> Feb 27  2019 unix_update
+-rwxr-xr-x 1 root root     <b>35K</b> Jan 22 14:40 e2image
+-rwxr-xr-x 1 root root     <b>35K</b> Mar  5 17:23 fsck.cramfs
+-rwxr-xr-x 1 root root     <b>35K</b> Mar  5 17:23 mkfs.cramfs
+-rwxr-xr-x 1 root root     <b>36K</b> Sep  5  2019 start-stop-daemon
+-rwxr-xr-x 1 root root     <b>39K</b> Mar  5 17:23 blockdev
+-rwxr-xr-x 1 root root     <b>39K</b> Mar  5 17:23 wipefs
+-rwxr-xr-x 1 root root     <b>43K</b> Mar  5 17:23 fstrim
+-rwxr-xr-x 1 root root     <b>43K</b> Mar  5 17:23 runuser
+-rwxr-xr-x 1 root root     <b>47K</b> Mar  5 17:23 fsck
+-rwxr-xr-x 1 root root     <b>47K</b> Mar  5 17:23 sulogin
+-rwxr-xr-x 1 root root     <b>47K</b> Mar  5 17:23 swapon
+-rwxr-xr-x 1 root root     <b>56K</b> Mar  5 17:23 agetty
+-rwxr-xr-x 1 root root     <b>59K</b> Jan 22 14:40 resize2fs
+-rwxr-xr-x 1 root root     <b>59K</b> Mar  5 17:23 hwclock
+-rwxr-xr-x 1 root root     <b>79K</b> Mar  5 17:23 mkfs.minix
+-rwxr-xr-x 1 root root     <b>79K</b> Mar  5 17:23 mkswap
+-rwxr-xr-x 1 root root     <b>83K</b> Mar  5 17:23 losetup
+-rwxr-xr-x 1 root root     <b>87K</b> Mar  5 17:23 blkid
+-rwxr-xr-x 1 root root     <b>91K</b> Mar  5 17:23 fsck.minix
+-rwxr-xr-x 1 root root     <b>91K</b> Mar  5 17:23 zramctl
+-rwxr-xr-x 1 root root     <b>95K</b> Mar  5 17:23 cfdisk
+-rwxr-xr-x 1 root root    <b>103K</b> Jan 22 14:40 tune2fs
+-rwxr-xr-x 1 root root    <b>107K</b> Mar  5 17:23 sfdisk
+-rwxr-xr-x 1 root root    <b>123K</b> Mar  5 17:23 fdisk
+-rwxr-xr-x 1 root root    <b>127K</b> Jan 22 14:40 mke2fs
+-rwxr-xr-x 1 root root    <b>218K</b> Jan 22 14:40 debugfs
+-rwxr-xr-x 1 root root    <b>307K</b> Jan 22 14:40 e2fsck
+-rwxr-xr-x 1 root root   <b>1002K</b> Apr 16  2018 ldconfig.real
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-Notice we've subbed the picky **`grep`** for the spewy **`cat`**. Piped effectively the entire contents of `/etc/passwd` into a new unknown command called **`cut`**. Looking at its output (and I encourage you to build this pipeline on your own *Docker* container) it simply uses colon as a field delimiter and selects only field 7 (the last field).
+So **`sort`** is able to understand SI prefixes.
+
+Just as an aside, if you studied **`man ls`** properly, you would have encountered the following pearl:
 
 <pre>
-root@f749d99eff10:/# <b>cat /etc/passwd | cut -d ':' -f 7</b>
-/bin/bash
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/bin/sync
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
-/usr/sbin/nologin
+...
+  <b>-S</b>     sort by file size, largest first
+...
+  <b>-r</b>, --reverse
+         reverse order while sorting
+...
+</pre>
+
+So **`ls -lhSr`** does exactly the same thing as **`ls -lh /sbin | sort -k5h,5`**. ;)
+
+This illustrates something that you will encounter countless times in `*nix`, namely that there are multiple ways to skin the proverbial cat\*. There is however usually one solution that is shorter, simpler and/or more elegant.
+
+\* Well, not *nix **`cat`**, since it appears not to have any skin.
+
+<pre>
+root@nix:~/coreutils-8.32/src# <b>wc -l cat.c</b>
+     767 cat.c
+root@nix:~/coreutils-8.32/src# <b>fgrep -ci skin cat.c</b>
+0
+# I'm sorry ... I know ... it's a terrible nerd joke.
 root@f749d99eff10:/# <b>&block;</b>
 </pre>
 
-*"**`sort`** will obviously order the lines. And then the next "unknown" (**`uniq -c`**) ostensibly counts the number of occurrences of each unique string ... almost like `SELECT FIELD, COUNT(ID) FROM TABLE GROUP BY FIELD` would have done in SQL."*
+Some other useful toys that **`man sort`** will tell you about:
+<pre>
+...
+  <b>-f</b>, --ignore-case
+         fold lower case to upper case characters
+...
+  <b>-c</b>, --check, --check=diagnose-first
+         check for sorted input; do not sort
+  
+  <b>-C</b>, --check=quiet, --check=silent
+         like -c, but do not report first bad line
+...
+  <b>--parallel=N</b>
+         change the number of sorts run concurrently to N
+  
+  <b>-u</b>, --unique
+         with -c, check for strict ordering; without -c, output only the first of an equal run
+...
+</pre>
 
-Spot on! And keep those SQL skills on hand if you have them because there are many more text analogies of SQL queries to come.
+So as you can see, you can achieve all the complex sort orderings you would in Excel, only ... on a file with fifty million rows and/or thirty thousand columns.
 
-Next time I'll be lifting **`sort`**'s skirt to illustrate just how much more hidden power there is to a single command (and there are hundreds of commands). I might also show you the **`wget`** command to pull down some data to experiment with from the IntarWebz.
+I promised that I would show you how to pull down files from the web to test your new skills on.
+
+Let's pull some Oxford University [COVID-19](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker) data. There are generally two options, some installations have **`wget`**...
+
+<pre>
+root@f749d99eff10:~# <b>wget https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv</b>
+root@f749d99eff10:/# <b>&block;</b>
+</pre>
+
+...and some have **`curl`**...
+<pre>
+root@f749d99eff10:~# <b>curl -o OxCGRT_latest.csv https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv</b>
+# OR
+root@f749d99eff10:~# <b>curl https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv > OxCGRT_latest.csv</b>
+root@f749d99eff10:/# <b>&block;</b>
+</pre>
+
+...some have both (like your container) and some have *neither* (like public-facing production servers). ;)
+
+Right.
+
+We can continue pootling about in the safe shallows of `bash` built-ins and GNU [`coreutils`](https://www.gnu.org/software/coreutils/manual/html_node/index.html), there certainly is enough to keep us busy:
+
+<pre>
+# Remove the '| wc -l' to see the complete list of 61 bash built-ins (of which we've covered under 10%.)
+root@f749d99eff10:~# enable -a | wc -l
+<b>61</b>
+# Remove the '| wc -l' to see the complete list of 103 coreutils commands (of which we've covered under 10%)
+root@f749d99eff10:~# dpkg-query -L coreutils | sort | fgrep 'bin/' | egrep '/[a-z0-9]+$' | wc -l
+<b>103</b>
+root@f749d99eff10:/# <b>&block;</b>
+</pre>
+
+...but the fact is, I can feel your impatience to reach the summit of Data Wrangling. So since roughly 10-20% of builtins/coreutils commands constitute 80-90% of commands used on a daily basis, we may return at a later time to add some more tools to the belt.
+
+I think the time has come to address the elephant in the room. Regular Expressions. `*nix` is *nothing* without them, and frankly, so are you.
+
+There are currently three painfully obvious gaps in your Data Wrangling trophy cabinet: **`egrep`**, **`sed`** and **`awk`**.
+
+And the only weapon that will mount those trophies: Regular Expressions.
+
+So the *'Baby Steps'* ends today. Next time (and quite a few after that), we'll start going to the regex range to train like grownups. 
