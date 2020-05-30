@@ -1,3 +1,3 @@
 # n4h
 
-The `*nix4humans` effort has moved: [HERE](4humans.github.io/nix)
+The `*nix4humans` effort has moved: [HERE](https://4humans.github.io/nix/)
